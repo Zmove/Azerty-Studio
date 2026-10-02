@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>azerty-studio.fr — Créons un site à votre image</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth;background:#181714}
+body{margin:0;background:#181714;color:#ece8e1;font-family:Geist,system-ui,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden}
+*{box-sizing:border-box}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+a:hover{color:var(--acc,#ec7a3c)}
+::selection{background:var(--acc,#ec7a3c);color:#181714}
+</style>
+</helmet>
+
+<div style="position:fixed;inset:0;pointer-events:none;z-index:60;opacity:.07;mix-blend-mode:overlay;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E&quot;)"></div>
+
+<header data-header="" style="position:fixed;top:0;left:0;right:0;z-index:50;color:#ece8e1;padding:14px clamp(12px,2.4vw,40px) 0;transition:transform .7s cubic-bezier(.16,1,.3,1)">
+  <div data-navbar="" style="max-width:1640px;margin:0 auto;padding:10px 10px 10px clamp(16px,2vw,28px);display:flex;align-items:center;justify-content:space-between;gap:24px;border-radius:999px;border:1px solid transparent;background:rgba(24,23,20,0);-webkit-backdrop-filter:blur(0px);backdrop-filter:blur(0px);transition:background .5s,border-color .5s,backdrop-filter .5s,-webkit-backdrop-filter .5s,box-shadow .5s">
+    <a href="#top" data-logo="" aria-label="azerty-studio.fr" style="display:flex;align-items:baseline;font:600 20px/1 Geist,sans-serif;letter-spacing:-0.04em;color:#ece8e1"><span data-logo-l="" style="display:inline-block;will-change:transform;backface-visibility:hidden">a</span><span data-logo-l="" style="display:inline-block;will-change:transform;backface-visibility:hidden">z</span><span data-logo-l="" style="display:inline-block;will-change:transform;backface-visibility:hidden">e</span><span data-logo-l="" style="display:inline-block;will-change:transform;backface-visibility:hidden">r</span><span data-logo-l="" style="display:inline-block;will-change:transform;backface-visibility:hidden">t</span><span data-logo-l="" style="display:inline-block;will-change:transform;backface-visibility:hidden">y</span><span data-logo-s="" style="display:inline-block;will-change:transform;backface-visibility:hidden;font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;font-size:1.12em;letter-spacing:0;margin-left:.06em">studio</span><span data-logo-d="" style="display:inline-block;will-change:transform;backface-visibility:hidden;color:var(--acc,#ec7a3c);font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;font-size:1.12em;letter-spacing:0">.fr</span></a>
+    <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+      <nav style="display:flex;gap:clamp(18px,2.4vw,36px);font:500 12px/1 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase">
+        <a href="#concept" style="color:#ece8e1;transition:color .3s" style-hover="color:var(--acc,#ec7a3c)">Concept</a>
+        <a href="#etapes" style="color:#ece8e1;transition:color .3s" style-hover="color:var(--acc,#ec7a3c)">Étapes</a>
+        <a href="#tarifs" style="color:#ece8e1;transition:color .3s" style-hover="color:var(--acc,#ec7a3c)">Tarifs</a>
+        <a href="#portfolio" style="color:#ece8e1;transition:color .3s" style-hover="color:var(--acc,#ec7a3c)">Portfolio</a>
+        <a href="#stack" style="color:#ece8e1;transition:color .3s" style-hover="color:var(--acc,#ec7a3c)">Stack</a>
+      </nav>
+    </sc-if>
+    <a href="#cta" data-magnetic="" style-hover="background:var(--acc,#ec7a3c);color:#181714" style="transition:transform .5s cubic-bezier(.16,1,.3,1),background .3s,color .3s;display:flex;align-items:center;gap:10px;padding:12px 18px;border-radius:999px;background:#ece8e1;color:#181714;font:500 12px/1 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase">Prendre RDV <span>→</span></a>
+  </div>
+</header>
+
+<main>
+<section id="top" data-screen-label="Hero" style="position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:space-between;gap:56px;padding:120px 0 40px;overflow:hidden">
+  <div data-glow="" style="position:absolute;top:-30vw;right:-20vw;transition:transform 1.2s cubic-bezier(.16,1,.3,1);width:80vw;height:80vw;border-radius:50%;background:radial-gradient(closest-side,color-mix(in oklch,var(--acc,#ec7a3c) 18%,transparent),transparent);pointer-events:none"></div>
+  <div data-hero-fade="" style="position:relative;max-width:1640px;width:100%;margin:0 auto;padding:0 clamp(20px,4vw,56px);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px 32px;font:500 12px/1.4 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:#9b968c">
+    <span style="display:flex;align-items:center;gap:10px"><span style="width:8px;height:8px;border-radius:50%;background:var(--acc,#ec7a3c)"></span>Développeur web · 20 ans d'expérience</span>
+    <span>Besançon, Doubs</span>
+  </div>
+
+  <div style="position:relative;max-width:1640px;width:100%;margin:0 auto;padding:0 clamp(20px,4vw,56px)">
+    <h1 data-h1="" style="margin:0;font-weight:500;font-size:clamp(44px,9.33vw,183px);line-height:.9;letter-spacing:-0.055em">
+      <span data-drift="-0.18" style="display:block;overflow:hidden;padding-bottom:.06em"><span data-hero="" style="display:inline-block">Créons <span data-pill="" style="transition:transform .7s cubic-bezier(.16,1,.3,1);display:inline-block;width:1.6em;height:.72em;border-radius:999px;overflow:hidden;vertical-align:baseline;transform:translateY(.06em);margin:0 .04em"><img src="assets/deux-propositions.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:50% 40%;transform:scale(1.2);transition:transform .7s cubic-bezier(.16,1,.3,1)"></span> un site</span></span>
+      <span data-drift="0.18" style="display:block;overflow:hidden;padding-bottom:.08em;padding-right:.1em;text-align:right"><span data-hero="" style="display:inline-block;font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:-0.02em;">à votre image<span data-bounce="" style="display:inline-block;color:var(--acc,#ec7a3c);transform-origin:50% 92%;cursor:pointer">.</span></span></span>
+    </h1>
+  </div>
+
+  <div data-hero-fade="" style="position:relative;max-width:1640px;width:100%;margin:0 auto;padding:0 clamp(20px,4vw,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:40px clamp(24px,4vw,64px);align-items:end">
+    <a href="#azerty" style="display:flex;align-items:center;gap:14px;font:500 12px/1 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:#9b968c">
+      <span style="width:44px;height:44px;border-radius:50%;border:1px solid rgba(236,232,225,.2);display:grid;place-items:center;color:#ece8e1;overflow:hidden"><span data-arrow-loop="" style="display:block">↓</span></span>Défiler
+    </a>
+    <p style="margin:0;font-size:18px;line-height:1.6;color:#c9c4bb;text-wrap:pretty;max-width:46ch">Un site réussi commence par une bonne compréhension de votre activité, de vos envies et de vos priorités. Pour vous aider à vous projeter sans partir d'une page blanche, je prépare en amont <b data-mark="" style="font-weight:500;font-style:normal;font-family:inherit;font-size:inherit;color:transparent;-webkit-text-fill-color:transparent;background-image:linear-gradient(90deg,var(--acc,#ec7a3c) 0%,color-mix(in oklch,var(--acc,#ec7a3c) 45%,#fff) 25%,var(--acc,#ec7a3c) 50%,color-mix(in oklch,var(--acc,#ec7a3c) 82%,#000) 75%,var(--acc,#ec7a3c) 100%);background-size:200% 100%;background-position:0% 0;-webkit-background-clip:text;background-clip:text;-webkit-box-decoration-break:clone;box-decoration-break:clone">deux pistes concrètes</b>, que nous affinons ensuite ensemble.</p>
+    <div style="display:flex;flex-direction:column;gap:28px">
+      <blockquote style="margin:0;font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(22px,2vw,30px);line-height:1.2;color:#ece8e1;text-wrap:pretty">« Et si votre futur site prenait forme avant même notre premier rendez-vous ? »</blockquote>
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px">
+        <a href="#concept" style="display:inline-flex;align-items:center;gap:12px;padding:18px 26px;border-radius:999px;background:var(--acc,#ec7a3c);color:#181714;font-weight:500;font-size:15px;transition:transform .5s cubic-bezier(.16,1,.3,1)" data-magnetic="">Découvrir le concept <span>→</span></a>
+        <a href="#tarifs" style="font-size:15px;color:#ece8e1;border-bottom:1px solid rgba(236,232,225,.3);padding-bottom:4px">Voir les tarifs</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="azerty" data-screen-label="AZERTY" style="position:relative;padding:clamp(56px,6vw,96px) 0;border-top:1px solid rgba(236,232,225,.1)">
+  <div style="max-width:1640px;margin:0 auto;padding:0 clamp(20px,4vw,56px);display:flex;flex-direction:column;align-items:center;gap:clamp(28px,3vw,44px)">
+    <div data-keys="" style="display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(6px,1vw,14px);padding-bottom:8px">
+      <sc-for list="{{ keys }}" as="k" hint-placeholder-count="6">
+        <button type="button" aria-label="{{ k.letter }}" onPointerDown="{{ k.down }}" onPointerUp="{{ k.up }}" onPointerLeave="{{ k.up }}" style="position:relative;width:clamp(46px,6.4vw,92px);aspect-ratio:1;border:0;padding:0;border-radius:18%;background:linear-gradient(180deg,#2e2c27,#1c1b17);cursor:pointer;transition:transform .12s cubic-bezier(.3,.7,.4,1),box-shadow .12s;transform:{{ k.tf }};box-shadow:{{ k.shadow }}">
+          <span style="position:absolute;inset:7% 9% 13%;border-radius:14%;background:linear-gradient(165deg,#36342e,#23211d);box-shadow:inset 0 1px 0 rgba(255,255,255,.07);display:grid;place-items:center;font:500 clamp(18px,2.6vw,36px)/1 Geist,sans-serif;letter-spacing:-0.04em;transition:color .12s,text-shadow .12s;color:{{ k.color }};text-shadow:{{ k.glow }}">{{ k.letter }}</span>
+        </button>
+      </sc-for>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center">
+      <p data-reveal="" style="margin:0;font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(24px,2.6vw,38px);line-height:1;letter-spacing:-0.01em">« Un homme AZERTY en vaut deux. »</p>
+      <p data-reveal="" data-delay="100" style="margin:0;font-size:clamp(17px,1.4vw,21px);color:#c9c4bb">Deux maquettes plutôt qu'une, dès le premier rendez-vous.</p>
+      <sc-if value="{{ averti }}" hint-placeholder-val="{{ false }}">
+        <p style="margin:12px 0 0;font:500 12px/1 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--acc,#ec7a3c)">Vous voilà averti. ✓</p>
+      </sc-if>
+    </div>
+  </div>
+</section>
+
+<section id="about" data-screen-label="01 Qui suis-je" style="padding:clamp(96px,12vw,180px) 0;border-top:1px solid rgba(236,232,225,.1)">
+  <div style="max-width:1640px;margin:0 auto;padding:0 clamp(20px,4vw,56px);display:flex;flex-wrap:wrap;gap:clamp(48px,6vw,112px)">
+    <div style="flex:1 1 380px;display:flex;flex-direction:column;gap:16px;align-self:flex-start">
+      <div data-clip="" data-cursor="Alex" style="aspect-ratio:4/5;overflow:hidden;border-radius:6px;background:#22201c">
+        <img data-parallax="0.08" src="assets/studio.jpg" alt="Studio de développement" style="width:100%;height:100%;object-fit:cover;object-position:45% 50%;transform:scale(1.15)">
+      </div>
+      <div style="display:flex;justify-content:space-between;gap:16px;font:500 12px/1.4 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:#9b968c">
+        <span>Basé en France</span><span>À Besançon, dans le Doubs</span>
+      </div>
+    </div>
+    <div style="flex:1.4 1 520px;display:flex;flex-direction:column;gap:clamp(40px,4vw,64px)">
+      <div style="display:flex;align-items:center;gap:12px;font:500 12px/1 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:#9b968c"><span style="width:8px;height:8px;border-radius:50%;background:var(--acc,#ec7a3c)"></span>01 — Qui suis-je</div>
+      <h2 data-split="" style="margin:0;font-weight:500;font-size:clamp(34px,4.4vw,76px);line-height:.96;letter-spacing:-0.045em;text-wrap:balance" data-comment-anchor="ca7b583b00-h2">Quinze ans en agence. <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:-0.015em;margin-right:.24em">Une conviction</span>à défendre.</h2>
+      <div data-reveal="" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:24px 40px;font-size:18px;line-height:1.65;color:#c9c4bb">
+        <p style="margin:0;text-wrap:pretty">Je m'appelle Alex, développeur web freelance. Pendant 15 ans, j'ai travaillé en agence web — d'abord comme développeur, puis comme chef de projet. J'ai vu les grands projets aboutir, mais aussi les lourdeurs, les devis interminables, les allers-retours sans fin, les clients qui se sentent perdus entre trois interlocuteurs.</p>
+        <div style="display:flex;flex-direction:column;gap:24px">
+          <p style="margin:0;text-wrap:pretty">Ces limites m'ont motivé pour concevoir un nouveau concept : plus direct, plus concret, plus rapide. Un seul interlocuteur, deux maquettes réelles dès le premier rendez-vous, et un site en ligne peu de temps après.</p>
+          <p style="margin:0;text-wrap:pretty">Je travaille avec Webstudio et October CMS, deux outils modernes que je maîtrise parfaitement.</p>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:32px;border-top:1px solid rgba(236,232,225,.12);padding-top:32px">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div data-count="400" style="font-weight:400;font-size:clamp(52px,5.28vw,84px);line-height:.9;letter-spacing:-0.05em">400</div>
+          <div style="font-size:15px;color:#ece8e1">projets accompagnés</div>
+          <p style="margin:0;font-size:14px;line-height:1.5;color:#9b968c">Des missions menées auprès d'entreprises et d'organisations aux enjeux variés.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;align-items:baseline;gap:6px;font-weight:400;font-size:clamp(52px,5.28vw,84px);line-height:.9;letter-spacing:-0.05em"><span data-count="4.8" data-dec="1">4,8</span><span style="font-size:.4em;color:#9b968c;letter-spacing:-0.02em">/5</span></div>
+          <div aria-label="Note de 4.8 sur 5" style="color:var(--acc,#ec7a3c);letter-spacing:.2em;font-size:15px">★★★★★</div>
+          <p style="margin:0;font-size:14px;line-height:1.5;color:#9b968c">De nombreux clients satisfaits</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="font:500 12px/1 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:#9b968c">Terrain d'intervention</div>
+          <p style="margin:0;font-size:16px;line-height:1.55;color:#ece8e1;text-wrap:pretty">PME, réseaux et institutions en France<span aria-label="drapeau français" style="display:inline-block;width:1.15em;height:.78em;margin:0 .15em 0 .3em;vertical-align:-.08em;border-radius:2px;background:linear-gradient(90deg,#0055a4 0 33.4%,#fff 33.4% 66.6%,#ef4135 66.6%);box-shadow:0 0 0 1px rgba(236,232,225,.15)"></span> &amp; en Suisse<span aria-label="drapeau suisse" style="display:inline-block;width:.82em;height:.82em;margin:0 .1em 0 .3em;vertical-align:-.1em;border-radius:2px;background:linear-gradient(#fff,#fff) center/62% 20% no-repeat,linear-gradient(#fff,#fff) center/20% 62% no-repeat,#da291c"></span>, avec des formats adaptés aux équipes qui doivent avancer vite.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="concept" data-screen-label="02 Concept" style="padding:clamp(96px,12vw,180px) 0;border-top:1px solid rgba(236,232,225,.1)">
+  <div style="max-width:1640px;margin:0 auto;padding:0 clamp(20px,4vw,56px);display:flex;flex-direction:column;gap:clamp(48px,6vw,96px)">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:32px 64px">
+      <div style="flex:1 1 640px;display:flex;flex-direction:column;gap:32px">
+        <div style="display:flex;align-items:center;gap:12px;font:500 12px/1 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:#9b968c"><span style="width:8px;height:8px;border-radius:50%;background:var(--acc,#ec7a3c)"></span>02 — Le concept</div>
+        <h2 data-split="" style="margin:0;font-weight:500;font-size:clamp(40px,6.16vw,113px);line-height:.92;letter-spacing:-0.05em">Deux propositions <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:-0.015em;">au premier rendez-vous.</span></h2>
+      </div>
+      <p data-reveal="" data-delay="120" style="flex:0 1 420px;margin:0;font-size:18px;line-height:1.6;color:#c9c4bb;text-wrap:pretty">Vous réservez une visio en remplissant quelques informations sur votre projet. Avant notre rendez-vous, je prépare <em data-mark="" style="font-weight:500;font-style:normal;font-family:inherit;font-size:inherit;color:transparent;-webkit-text-fill-color:transparent;background-image:linear-gradient(90deg,var(--acc,#ec7a3c) 0%,color-mix(in oklch,var(--acc,#ec7a3c) 45%,#fff) 25%,var(--acc,#ec7a3c) 50%,color-mix(in oklch,var(--acc,#ec7a3c) 82%,#000) 75%,var(--acc,#ec7a3c) 100%);background-size:200% 100%;background-position:0% 0;-webkit-background-clip:text;background-clip:text;-webkit-box-decoration-break:clone;box-decoration-break:clone">deux maquettes fonctionnelles</em>, déjà en ligne.</p>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <div data-scale="" ref="{{ compareRef }}" onPointerDown="{{ onCmpDown }}" onPointerMove="{{ onCmpMove }}" onPointerUp="{{ onCmpUp }}" onPointerCancel="{{ onCmpUp }}" style="position:relative;width:100%;aspect-ratio:16/9;min-height:320px;border-radius:14px;overflow:hidden;background:#f2ede4;container-type:inline-size;cursor:grab;user-select:none;touch-action:pan-y;box-shadow:0 60px 120px -40px rgba(0,0,0,.8),0 0 0 1px rgba(236,232,225,.1)">
+        <div style="position:absolute;inset:0;background:#f2ede4;color:#14120f;display:flex;flex-direction:column">
+          <div style="height:3.6cqw;min-height:28px;display:flex;align-items:center;gap:.6cqw;padding:0 1.6cqw;border-bottom:1px solid rgba(20,18,15,.08)"><span style="width:.8cqw;height:.8cqw;min-width:7px;min-height:7px;border-radius:50%;background:rgba(20,18,15,.15)"></span><span style="width:.8cqw;height:.8cqw;min-width:7px;min-height:7px;border-radius:50%;background:rgba(20,18,15,.15)"></span><span style="width:.8cqw;height:.8cqw;min-width:7px;min-height:7px;border-radius:50%;background:rgba(20,18,15,.15)"></span></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:2.2cqw 4cqw">
+            <span style="font:700 2cqw/1 Geist,sans-serif;letter-spacing:-0.05em">aurèle</span>
+            <span style="display:flex;gap:2.6cqw;align-items:center;font:500 1.1cqw/1 Geist,sans-serif"><span>La carte</span><span>Le lieu</span><span style="padding:.9cqw 1.6cqw;border-radius:99px;background:#14120f;color:#f2ede4">Réserver</span></span>
+          </div>
+          <div style="flex:1;display:grid;grid-template-columns:1fr 1fr;gap:4cqw;padding:2cqw 4cqw 4cqw;align-items:stretch">
+            <div style="display:flex;flex-direction:column;justify-content:flex-end;gap:2cqw">
+              <span style="font:500 1cqw/1 'Geist Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:#6a655c">Restaurant — Besançon</span>
+              <span style="font:600 6cqw/.9 Geist,sans-serif;letter-spacing:-0.06em">Cuisine de saison, sans détour.</span>
+              <span style="font:400 1.3cqw/1.5 Geist,sans-serif;color:#4c4840;max-width:34ch">Produits du Doubs, carte courte, service attentif. Ouvert du mardi au samedi.</span>
+              <span style="align-self:flex-start;padding:1.1cqw 2cqw;border-radius:99px;background:#d4532b;color:#fff;font:500 1.2cqw/1 Geist,sans-serif">Voir la carte →</span>
+            </div>
+            <div style="border-radius:1.2cqw;overflow:hidden"><img src="assets/table-des-marais.jpg" alt="" draggable="false" style="width:100%;height:100%;object-fit:cover"></div>
+          </div>
+        </div>
+
+        <div style="position:absolute;inset:0;background:#100e0b;color:#efe6d6;clip-path:{{ clipA }}">
+          <img src="assets/table-des-marais.jpg" alt="" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55">
+          <div style="position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(16,14,11,.35),rgba(16,14,11,.92))"></div>
+          <div style="position:relative;height:100%;display:flex;flex-direction:column">
+            <div style="height:3.6cqw;min-height:28px;display:flex;align-items:center;gap:.6cqw;padding:0 1.6cqw;border-bottom:1px solid rgba(239,230,214,.1)"><span style="width:.8cqw;height:.8cqw;min-width:7px;min-height:7px;border-radius:50%;background:rgba(239,230,214,.25)"></span><span style="width:.8cqw;height:.8cqw;min-width:7px;min-height:7px;border-radius:50%;background:rgba(239,230,214,.25)"></span><span style="width:.8cqw;height:.8cqw;min-width:7px;min-height:7px;border-radius:50%;background:rgba(239,230,214,.25)"></span></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:2.2cqw 4cqw">
+              <span style="font:400 2.2cqw/1 'Instrument Serif',serif">Maison Aurèle</span>
+              <span style="display:flex;gap:2.6cqw;font:500 .95cqw/1 'Geist Mono',monospace;letter-spacing:.18em;text-transform:uppercase"><span>La carte</span><span>Le lieu</span><span>Réserver</span></span>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.8cqw;text-align:center;padding-bottom:5cqw">
+              <span style="font:500 1cqw/1 'Geist Mono',monospace;letter-spacing:.3em;text-transform:uppercase;color:#d3ad72">Table de saison · Besançon</span>
+              <span style="font:400 9cqw/.9 'Instrument Serif',serif;letter-spacing:-0.02em">Maison Aurèle</span>
+              <span style="font:italic 400 2cqw/1 'Instrument Serif',serif;color:#cfc4b2">Une cuisine qui prend son temps.</span>
+              <span style="margin-top:1cqw;padding:1.1cqw 2.4cqw;border:1px solid #d3ad72;color:#d3ad72;font:500 1cqw/1 'Geist Mono',monospace;letter-spacing:.2em;text-transform:uppercase">Réserver une table</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="position:absolute;top:calc(max(3.6cqw,28px) + 14px);left:16px;padding:8px 12px;border-radius:99px;background:rgba(24,23,20,.75);backdrop-filter:blur(8px);color:#ece8e1;font:500 11px/1 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;pointer-events:none">Proposition A</div>
+        <div style="position:absolute;top:calc(max(3.6cqw,28px) + 14px);right:16px;padding:8px 12px;border-radius:99px;background:rgba(24,23,20,.85);color:#ece8e1;font:500 11px/1 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;pointer-events:none">Proposition B</div>
+        <div style="position:absolute;top:0;bottom:0;width:0;left:{{ handleLeft }};pointer-events:none">
+          <div style="position:absolute;top:0;bottom:0;left:-1px;width:2px;background:var(--acc,#ec7a3c)"></div>
+          <div style="position:absolute;top:50%;left:-32px;width:64px;height:64px;margin-top:-32px;border-radius:50%;background:var(--acc,#ec7a3c);color:#181714;display:grid;place-items:center;font:500 12px/1 'Geist Mono',monospace;letter-spacing:.04em;box-shadow:0 10px 30px rgba(0,0,0,.35)">A ⇆ B</div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:24px 48px">
+        <div style="display:flex;gap:20px;align-items:baseline"><span style="font:500 12px/1 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--acc,#ec7a3c);white-space:nowrap">Proposition A</span><p style="margin:0;font-size:16px;line-height:1.55;color:#c9c4bb"><span style="color:#ece8e1">Une première direction claire.</span> Un univers graphique complet, pensé comme une vraie piste créative à explorer en ligne.</p></div>
+        <div style="display:flex;gap:20px;align-items:baseline"><span style="font:500 12px/1 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--acc,#ec7a3c);white-space:nowrap">Proposition B</span><p style="margin:0;font-size:16px;line-height:1.55;color:#c9c4bb"><span style="color:#ece8e1">Une alternative distincte.</span> Une seconde approche, différente dans le style et la structure, pour comparer et choisir.</p></div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:48px clamp(24px,3vw,48px)">
+      <div data-reveal="" style="display:flex;flex-direction:column;gap:16px;border-top:1px solid rgba(236,232,225,.14);padding-top:28px">
+        <span style="font:500 12px/1 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--acc,#ec7a3c)">01 · Avant la visio</span>
+        <h3 style="margin:0;font-weight:500;font-size:clamp(26px,2.2vw,34px);line-height:1.08;letter-spacing:-0.035em">Je conçois deux directions distinctes</h3>
+        <p style="margin:0;font-size:16px;line-height:1.6;color:#9b968c;text-wrap:pretty">Deux univers visuels, deux structures — pour vous offrir un vrai choix, pas une variante.</p>
+      </div>
+      <div data-reveal="" data-delay="100" style="display:flex;flex-direction:column;gap:16px;border-top:1px solid rgba(236,232,225,.14);padding-top:28px">
+        <span style="font:500 12px/1 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--acc,#ec7a3c)">02 · Pendant la visio</span>
+        <h3 style="margin:0;font-weight:500;font-size:clamp(26px,2.2vw,34px);line-height:1.08;letter-spacing:-0.035em">Vous naviguez, cliquez, décidez</h3>
+        <p style="margin:0;font-size:16px;line-height:1.6;color:#9b968c;text-wrap:pretty">Les maquettes sont en ligne et fonctionnelles. Pas de PDF, pas d'imaginaire — du concret.</p>
+      </div>
+      <div data-reveal="" data-delay="200" style="display:flex;flex-direction:column;gap:16px;border-top:1px solid rgba(236,232,225,.14);padding-top:28px">
+        <span style="font:500 12px/1 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--acc,#ec7a3c)">03 · Après la visio</span>
+        <h3 style="margin:0;font-weight:500;font-size:clamp(26px,2.2vw,34px);line-height:1.08;letter-spacing:-0.035em">On ajuste et on met en ligne</h3>
+        <p style="margin:0;font-size:16px;line-height:1.6;color:#9b968c;text-wrap:pretty">Contenus, ajustements ciblés, mise en production. Le paiement intervient à cette étape.</p>
+      </div>
+    </div>
+
+    <div data-reveal="" style="border-radius:10px;background:var(--acc,#ec7a3c);color:#181714;padding:clamp(32px,5vw,80px);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:32px 64px">
+      <div style="flex:1 1 560px;display:flex;flex-direction:column;gap:24px">
+        <span style="font:500 12px/1 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase">Sans engagement, sans risque</span>
+        <h3 style="margin:0;font-weight:500;font-size:clamp(37px,5.28vw,92px);line-height:.92;letter-spacing:-0.05em">C’est moi qui prends<br><span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:-0.015em;">le risque.</span></h3>
+      </div>
+      <div style="flex:0 1 420px;display:flex;flex-direction:column;align-items:flex-start;gap:28px">
+        <p style="margin:0;font-size:18px;line-height:1.55;text-wrap:pretty">Je vous présente des maquettes concrètes. Si mes propositions ne vous plaisent pas, on s’arrête simplement là : je repars avec mes maquettes et vous n’avez rien dépensé.</p>
+        <a href="#cta" data-magnetic="" data-pop="" style="display:inline-flex;align-items:center;gap:12px;padding:18px 26px;border-radius:999px;background:#181714;color:#ece8e1;font-weight:500;font-size:15px;overflow:hidden;transition:transform .5s cubic-bezier(.16,1,.3,1)">Prendre rendez-vous <span data-pop-arrow="" style="display:inline-block">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="etapes" data-screen-label="03 Processus" style="padding:clamp(96px,12vw,180px) 0;border-top:1px solid rgba(236,232,225,.1)">
+  <div style="max-width:1640px;margin:0 auto;padding:0 clamp(20px,4vw,56px);display:flex;flex-wrap:wrap;gap:clamp(56px,7vw,128px)">
+    <div style="flex:1 1 400px;align-self:flex-start;position:sticky;top:110px;display:flex;flex-direction:column;gap:32px">
+      <div style="display:flex;align-items:center;gap:12px;font:500 12px/1 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:#9b968c"><span style="width:8px;height:8px;border-radius:50%;background:var(--acc,#ec7a3c)"></span>03 — Le processus</div>
+      <h2 data-split="" style="margin:0;font-weight:500;font-size:clamp(40px,4.75vw,84px);line-height:.94;letter-spacing:-0.05em">Une méthode pensée pour la <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:-0.015em;">mise en ligne rapide.</span></h2>
+      <p style="margin:0;font-size:18px;line-height:1.6;color:#c9c4bb;max-width:44ch;text-wrap:pretty">Cinq étapes claires, du premier clic à la mise en production. Le paiement n'intervient qu'à la toute fin.</p>
+      <div style="display:flex;flex-direction:column;gap:20px;border-top:1px solid rgba(236,232,225,.12);padding-top:28px">
+        <div style="display:grid;grid-template-columns:28px 1fr;gap:16px"><span style="width:28px;height:28px;border-radius:50%;background:var(--acc,#ec7a3c);color:#181714;display:grid;place-items:center;font-size:13px">✓</span><div><div style="font-weight:500;font-size:17px;margin-bottom:4px">Simple à suivre</div><p style="margin:0;font-size:15px;line-height:1.5;color:#9b968c">Cinq étapes limpides, aucune zone d'ombre entre le premier clic et la mise en ligne.</p></div></div>
+        <div style="display:grid;grid-template-columns:28px 1fr;gap:16px"><span style="width:28px;height:28px;border-radius:50%;background:var(--acc,#ec7a3c);color:#181714;display:grid;place-items:center;font-size:13px">✓</span><div><div style="font-weight:500;font-size:17px;margin-bottom:4px">Sans engagement</div><p style="margin:0;font-size:15px;line-height:1.5;color:#9b968c">Vous ne payez qu'à la mise en ligne. Si le projet ne vous convient pas, vous restez libre.</p></div></div>
+        <div style="display:grid;grid-template-columns:28px 1fr;gap:16px"><span style="width:28px;height:28px;border-radius:50%;background:var(--acc,#ec7a3c);color:#181714;display:grid;place-items:center;font-size:13px">✓</span><div><div style="font-weight:500;font-size:17px;margin-bottom:4px">Rapide</div><p style="margin:0;font-size:15px;line-height:1.5;color:#9b968c">Deux maquettes dès la visio, un site en ligne en quelques jours — pas en quelques mois.</p></div></div>
+      </div>
+    </div>
+    <div ref="{{ processRef }}" style="flex:1.3 1 520px;position:relative">
+      <div style="position:absolute;left:31px;top:32px;bottom:32px;width:1px;background:rgba(236,232,225,.14)"></div>
+      <div ref="{{ fillRef }}" style="position:absolute;left:31px;top:32px;bottom:32px;width:1px;background:var(--acc,#ec7a3c);transform-origin:top;transform:scaleY(0)"></div>
+      <ol style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:clamp(56px,6vw,96px)">
+        <li data-reveal="" style="position:relative;display:grid;grid-template-columns:64px 1fr;gap:clamp(20px,3vw,40px)">
+          <span data-dot="" style="transition:background .5s,color .5s,border-color .5s;width:64px;height:64px;border-radius:50%;border:1px solid rgba(236,232,225,.2);background:#181714;display:grid;place-items:center;font:500 14px/1 'Geist Mono',monospace">01</span>
+          <div style="display:flex;flex-direction:column;gap:14px;padding-top:12px"><h3 style="margin:0;font-weight:500;font-size:clamp(30px,3.2vw,52px);line-height:1;letter-spacing:-0.04em">Réservation en ligne</h3><p style="margin:0;font-size:18px;line-height:1.6;color:#9b968c;max-width:48ch;text-wrap:pretty">Vous réservez un créneau de visio et renseignez quelques informations essentielles sur votre projet.</p></div>
+        </li>
+        <li data-reveal="" style="position:relative;display:grid;grid-template-columns:64px 1fr;gap:clamp(20px,3vw,40px)">
+          <span data-dot="" style="transition:background .5s,color .5s,border-color .5s;width:64px;height:64px;border-radius:50%;border:1px solid rgba(236,232,225,.2);background:#181714;display:grid;place-items:center;font:500 14px/1 'Geist Mono',monospace">02</span>
+          <div style="display:flex;flex-direction:column;gap:14px;padding-top:12px"><h3 style="margin:0;font-weight:500;font-size:clamp(30px,3.2vw,52px);line-height:1;letter-spacing:-0.04em">Préparation des maquettes</h3><p style="margin:0;font-size:18px;line-height:1.6;color:#9b968c;max-width:48ch;text-wrap:pretty">Avant notre rendez-vous, je conçois deux propositions fonctionnelles, mises en ligne, prêtes à être commentées.</p></div>
+        </li>
+        <li data-reveal="" style="position:relative;display:grid;grid-template-columns:64px 1fr;gap:clamp(20px,3vw,40px)">
+          <span data-dot="" style="transition:background .5s,color .5s,border-color .5s;width:64px;height:64px;border-radius:50%;border:1px solid rgba(236,232,225,.2);background:#181714;display:grid;place-items:center;font:500 14px/1 'Geist Mono',monospace">03</span>
+          <div style="display:flex;flex-direction:column;gap:14px;padding-top:12px"><h3 style="margin:0;font-weight:500;font-size:clamp(30px,3.2vw,52px);line-height:1;letter-spacing:-0.04em">Visio et sélection</h3><p style="margin:0;font-size:18px;line-height:1.6;color:#9b968c;max-width:48ch;text-wrap:pretty">Nous parcourons ensemble les deux maquettes, vous retenez celle qui correspond le mieux à votre vision.</p></div>
+        </li>
+        <li data-reveal="" style="position:relative;display:grid;grid-template-columns:64px 1fr;gap:clamp(20px,3vw,40px)">
+          <span data-dot="" style="transition:background .5s,color .5s,border-color .5s;width:64px;height:64px;border-radius:50%;border:1px solid rgba(236,232,225,.2);background:#181714;display:grid;place-items:center;font:500 14px/1 'Geist Mono',monospace">04</span>
+          <div style="display:flex;flex-direction:column;gap:14px;padding-top:12px"><h3 style="margin:0;font-weight:500;font-size:clamp(30px,3.2vw,52px);line-height:1;letter-spacing:-0.04em">Ajustements ciblés</h3><p style="margin:0;font-size:18px;line-height:1.6;color:#9b968c;max-width:48ch;text-wrap:pretty">Nous affinons les détails : contenus, identité visuelle, fonctionnalités spécifiques à votre activité.</p></div>
+        </li>
+        <li data-reveal="" style="position:relative;display:grid;grid-template-columns:64px 1fr;gap:clamp(20px,3vw,40px)">
+          <span style="position:relative;width:64px;height:64px;display:block">
+            <span data-ring="" style="position:absolute;inset:0;border-radius:50%;background:var(--acc,#ec7a3c);opacity:0"></span>
+            <span data-ring="" style="position:absolute;inset:0;border-radius:50%;background:var(--acc,#ec7a3c);opacity:0"></span>
+            <span data-final="" style="position:relative;width:64px;height:64px;border-radius:50%;border:1px solid rgba(236,232,225,.2);background:#181714;color:#ece8e1;display:grid;place-items:center;font:500 14px/1 'Geist Mono',monospace;transition:transform .9s cubic-bezier(.34,1.56,.64,1),background .5s,color .5s,border-color .5s,box-shadow .9s">05</span>
+          </span>
+          <div style="display:flex;flex-direction:column;gap:14px;padding-top:12px"><h3 style="margin:0;font-weight:500;font-size:clamp(30px,3.2vw,52px);line-height:1;letter-spacing:-0.04em">Mise en ligne <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:-0.015em;">et paiement</span></h3><p style="margin:0;font-size:18px;line-height:1.6;color:#9b968c;max-width:48ch;text-wrap:pretty">Le site est livré, en production. Le paiement n'intervient qu'à cette étape — pas avant.</p></div>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="04 IA" style="padding:clamp(96px,12vw,180px) 0;border-top:1px solid rgba(236,232,225,.1)">
+  <div style="max-width:1640px;margin:0 auto;padding:0 clamp(20px,4vw,56px);display:flex;flex-direction:column;gap:clamp(48px,6vw,88px)">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:32px 64px">
+      <div style="flex:1 1 600px;display:flex;flex-direction:column;gap:32px">
+        <div style="display:flex;align-items:center;gap:12px;font:500 12px/1 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:#9b968c"><span style="width:8px;height:8px;border-radius:50%;background:var(--acc,#ec7a3c)"></span>04 — Comment est-ce possible ?</div>
+        <h2 data-split="" style="margin:0;font-weight:500;font-size:clamp(44px,7.04vw,130px);line-height:.9;letter-spacing:-0.055em">L'IA accélère.<br><span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:-0.015em;">L'expérience décide.</span></h2>
+      </div>
+      <div data-reveal="" data-delay="120" style="flex:0 1 460px;display:flex;flex-direction:column;gap:20px;font-size:17px;line-height:1.65;color:#c9c4bb">
+        <p style="margin:0;text-wrap:pretty">L'IA me fait gagner un temps considérable sur la production ; mes vingt ans de pratique me permettent de la piloter avec justesse.</p>
+        <p style="margin:0;text-wrap:pretty">Sans cadre technique solide, un projet dérive vite. Je garde la main sur l'architecture, la qualité du code et la cohérence globale.</p>
+      </div>
+    </div>
+    <div data-clip="" data-scale="" style="position:relative;aspect-ratio:21/8;min-height:260px;border-radius:10px;overflow:hidden;background:#0b0e1a">
+      <img data-parallax="0.12" src="assets/ia.jpg" alt="La main humaine guide l'outil" style="width:100%;height:100%;object-fit:cover;transform:scale(1.15)">
+    </div>
+    <div data-seq="" style="display:flex;flex-wrap:wrap;align-items:flex-start;gap:24px clamp(16px,2vw,32px)">
+      <div data-seq-i="" style="flex:1 1 240px;display:flex;flex-direction:column;gap:14px;border-top:1px solid rgba(236,232,225,.14);padding-top:24px">
+        <span style="font:500 12px/1 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:#9b968c">Le levier</span>
+        <span style="font-weight:500;font-size:clamp(28px,2.8vw,44px);line-height:1;letter-spacing:-0.04em">Les outils IA</span>
+        <p style="margin:0;font-size:15px;line-height:1.55;color:#9b968c">Prototypage rapide, exploration de directions visuelles, production accélérée.</p>
+      </div>
+      <span data-seq-i="" data-op="" style="flex:0 0 auto;display:inline-block;font:italic 400 clamp(56px,6vw,104px)/.8 'Instrument Serif',serif;color:var(--acc,#ec7a3c);padding-top:16px">×</span>
+      <div data-seq-i="" style="flex:1 1 240px;display:flex;flex-direction:column;gap:14px;border-top:1px solid rgba(236,232,225,.14);padding-top:24px">
+        <span style="font:500 12px/1 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:#9b968c">Le cadre</span>
+        <span style="font-weight:500;font-size:clamp(28px,2.8vw,44px);line-height:1;letter-spacing:-0.04em">20 ans d'expérience</span>
+        <p style="margin:0;font-size:15px;line-height:1.55;color:#9b968c">Architecture, qualité du code, cohérence globale — l'IA reste guidée, jamais autonome.</p>
+      </div>
+      <span data-seq-i="" data-op="" style="flex:0 0 auto;display:inline-block;font:italic 400 clamp(56px,6vw,104px)/.8 'Instrument Serif',serif;color:var(--acc,#ec7a3c);padding-top:16px">=</span>
+      <div data-seq-i="" style="flex:1 1 240px;display:flex;flex-direction:column;gap:14px;border-top:1px solid var(--acc,#ec7a3c);padding-top:24px">
+        <span style="font:500 12px/1 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--acc,#ec7a3c)">Le résultat</span>
+        <span style="font-weight:500;font-size:clamp(28px,2.8vw,44px);line-height:1;letter-spacing:-0.04em">2 maquettes <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400">de qualité</span></span>
+        <p style="margin:0;font-size:15px;line-height:1.55;color:#9b968c">Deux directions concrètes, en ligne, prêtes à être explorées ensemble.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div style="background:#ece8e1;color:#181714">
+<section id="tarifs" data-screen-label="05 Tarifs" style="padding:clamp(96px,12vw,180px) 0">
+  <div style="max-width:1640px;margin:0 auto;padding:0 clamp(20px,4vw,56px);display:flex;flex-direction:column;gap:clamp(48px,5vw,80px)">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:32px 64px">
+      <div style="flex:1 1 560px;display:flex;flex-direction:column;gap:32px">
+        <div style="display:flex;align-items:center;gap:12px;font:500 12px/1 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:#5e5a52"><span style="width:8px;height:8px;border-radius:50%;background:var(--acc,#ec7a3c)"></span>05 — Tarifs</div>
+        <h2 data-split="" style="margin:0;font-weight:500;font-size:clamp(44px,6.51vw,120px);line-height:.9;letter-spacing:-0.055em">Deux formats.<br><span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:-0.015em;">Deux formules.</span></h2>
+      </div>
+      <div style="flex:0 1 400px;display:flex;flex-direction:column;gap:24px;align-items:flex-start">
+        <p style="margin:0;font-size:18px;line-height:1.6;color:#4a463f">Une tarification claire, sans surprise. Choisissez le rythme qui vous convient.</p>
+        <div role="tablist" style="display:flex;padding:5px;border-radius:999px;border:1px solid rgba(24,23,20,.18);gap:4px">
+          <button type="button" onClick="{{ setMonthly }}" style="border:0;cursor:pointer;padding:12px 20px;border-radius:999px;font:500 12px/1 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;transition:background .3s,color .3s;background:{{ mBg }};color:{{ mFg }}">Mensuel</button>
+          <button type="button" onClick="{{ setOnce }}" style="border:0;cursor:pointer;padding:12px 20px;border-radius:999px;font:500 12px/1 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;transition:background .3s,color .3s;background:{{ oBg }};color:{{ oFg }}">Paiement unique</button>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:20px">
+      <div data-reveal="" data-tilt="" style="transition:transform .7s cubic-bezier(.16,1,.3,1),box-shadow .7s cubic-bezier(.16,1,.3,1);transform-style:preserve-3d;border:1px solid rgba(24,23,20,.16);border-radius:10px;padding:clamp(28px,3.4vw,52px);display:flex;flex-direction:column;gap:28px;min-height:520px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap">
+          <h3 style="margin:0;font-weight:500;font-size:clamp(36px,3.4vw,56px);letter-spacing:-0.045em;line-height:1">One page</h3>
+          <span style="font:500 12px/1 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:#5e5a52">Vitrine essentielle</span>
+        </div>
+        <p style="margin:0;font-size:17px;line-height:1.6;color:#4a463f;max-width:42ch">Un site clair et efficace regroupant l'essentiel de votre activité sur une seule page fluide.</p>
+        <div style="margin-top:auto;display:flex;flex-direction:column;gap:12px;border-top:1px solid rgba(24,23,20,.14);padding-top:28px">
+          <div data-price="" style="display:flex;align-items:baseline;flex-wrap:wrap;gap:8px 16px"><span style="font-weight:400;font-size:clamp(59px,6.16vw,106px);line-height:.9;letter-spacing:-0.06em">{{ oneP }}</span><span style="font-size:16px;color:#4a463f">{{ oneU }}</span></div>
+          <span style="font:500 12px/1 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:#5e5a52">{{ oneN }}</span>
+        </div>
+        <a href="#cta" style="display:flex;justify-content:space-between;align-items:center;padding:20px 24px;border-radius:999px;border:1px solid #181714;color:#181714;font-weight:500;transition:background .3s,color .3s" style-hover="background:#181714;color:#ece8e1">Choisir le One page <span>→</span></a>
+      </div>
+      <div data-reveal="" data-delay="100" data-tilt="" style="transition:transform .7s cubic-bezier(.16,1,.3,1),box-shadow .7s cubic-bezier(.16,1,.3,1);transform-style:preserve-3d;position:relative;border-radius:10px;background:#181714;color:#ece8e1;padding:clamp(28px,3.4vw,52px);display:flex;flex-direction:column;gap:28px;min-height:520px">
+        <span style="position:absolute;top:clamp(28px,3.4vw,52px);right:clamp(28px,3.4vw,52px);padding:8px 12px;border-radius:999px;background:var(--acc,#ec7a3c);color:#181714;font:500 11px/1 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase">Le plus complet</span>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <h3 style="margin:0;font-weight:500;font-size:clamp(36px,3.4vw,56px);letter-spacing:-0.045em;line-height:1">Multi-pages</h3>
+          <span style="font:500 12px/1 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:#9b968c">Présence structurée</span>
+        </div>
+        <p style="margin:0;font-size:17px;line-height:1.6;color:#c9c4bb;max-width:42ch">Un site complet avec plusieurs pages dédiées pour présenter vos services, votre univers et guider vos visiteurs.</p>
+        <div style="margin-top:auto;display:flex;flex-direction:column;gap:12px;border-top:1px solid rgba(236,232,225,.14);padding-top:28px">
+          <div data-price="" style="display:flex;align-items:baseline;flex-wrap:wrap;gap:8px 16px"><span style="font-weight:400;font-size:clamp(59px,6.16vw,106px);line-height:.9;letter-spacing:-0.06em">{{ multiP }}</span><span style="font-size:16px;color:#c9c4bb">{{ multiU }}</span></div>
+          <span style="font:500 12px/1 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:#9b968c">{{ multiN }}</span>
+        </div>
+        <a href="#cta" style="display:flex;justify-content:space-between;align-items:center;padding:20px 24px;border-radius:999px;background:var(--acc,#ec7a3c);color:#181714;font-weight:500;transition:transform .4s cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-2px)">Choisir le Multi-pages <span>→</span></a>
+      </div>
+    </div>
+
+    <div data-reveal="" style="border-top:1px solid rgba(24,23,20,.16);border-bottom:1px solid rgba(24,23,20,.16);padding:clamp(32px,4vw,56px) 0;display:flex;flex-wrap:wrap;gap:32px 64px;align-items:flex-start">
+      <div style="flex:1 1 360px;display:flex;flex-direction:column;gap:8px">
+        <span style="font-weight:500;font-size:clamp(37px,3.87vw,63px);line-height:.95;letter-spacing:-0.05em">E-commerce</span>
+        <span style="font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(28px,2.6vw,40px);line-height:1;color:#4a463f">Sur mesure</span>
+      </div>
+      <div style="flex:1.4 1 480px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:20px 40px;font-size:16px;line-height:1.6;color:#4a463f">
+        <p style="margin:0;text-wrap:pretty">Un projet e-commerce combine catalogue, logistique, moyens de paiement et parcours d'achat spécifiques. Chaque boutique a ses règles ; annoncer un prix standard reviendrait à survoler ces enjeux.</p>
+        <p style="margin:0;text-wrap:pretty">Je préfère prendre le temps d'étudier votre activité pour vous proposer une réponse précise, adaptée à vos objectifs de conversion — car mes sites sont conçus pour convertir.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="06 Raisons" style="padding:0 0 clamp(96px,12vw,180px)">
+  <div style="max-width:1640px;margin:0 auto;padding:0 clamp(20px,4vw,56px);display:flex;flex-direction:column;gap:clamp(48px,5vw,80px)">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:32px 64px">
+      <div style="flex:1 1 560px;display:flex;flex-direction:column;gap:32px">
+        <div style="display:flex;align-items:center;gap:12px;font:500 12px/1 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:#5e5a52"><span style="width:8px;height:8px;border-radius:50%;background:var(--acc,#ec7a3c)"></span>06 — Cinq bonnes raisons</div>
+        <h2 data-split="" style="margin:0;font-weight:500;font-size:clamp(44px,6.51vw,120px);line-height:.9;letter-spacing:-0.055em">Pourquoi <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:-0.015em;">collaborer</span><br>ensemble.</h2>
+      </div>
+      <p style="flex:0 1 400px;margin:0;font-size:18px;line-height:1.6;color:#4a463f">Cinq engagements concrets qui font la différence, dès le premier échange.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;border-bottom:1px solid rgba(24,23,20,.16)">
+      <div data-reveal="" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:12px 48px;align-items:baseline;padding:clamp(28px,3vw,44px) 0;border-top:1px solid rgba(24,23,20,.16);border-radius:4px;transition:background .6s cubic-bezier(.16,1,.3,1),padding .6s cubic-bezier(.16,1,.3,1)" data-row="">
+        <div style="display:flex;gap:clamp(20px,3vw,48px);align-items:baseline"><span style="font:500 13px/1 'Geist Mono',monospace;color:#5e5a52">01</span><h3 style="margin:0;font-weight:500;font-size:clamp(32px,4vw,68px);line-height:1;letter-spacing:-0.045em"><span data-row-arrow="" style="display:inline-block;width:0;overflow:hidden;vertical-align:bottom;opacity:0;transition:width .6s cubic-bezier(.16,1,.3,1),opacity .4s">→</span>Interlocuteur <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:-0.015em;">unique</span></h3></div>
+        <p style="margin:0;font-size:17px;line-height:1.6;color:#4a463f;max-width:52ch;text-wrap:pretty">Un seul contact du premier échange à la mise en ligne. Pas de chaîne d'intermédiaires, pas de perte d'information, pas de dilution de responsabilité.</p>
+      </div>
+      <div data-reveal="" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:12px 48px;align-items:baseline;padding:clamp(28px,3vw,44px) 0;border-top:1px solid rgba(24,23,20,.16);border-radius:4px;transition:background .6s cubic-bezier(.16,1,.3,1),padding .6s cubic-bezier(.16,1,.3,1)" data-row="">
+        <div style="display:flex;gap:clamp(20px,3vw,48px);align-items:baseline"><span style="font:500 13px/1 'Geist Mono',monospace;color:#5e5a52">02</span><h3 style="margin:0;font-weight:500;font-size:clamp(32px,4vw,68px);line-height:1;letter-spacing:-0.045em"><span data-row-arrow="" style="display:inline-block;width:0;overflow:hidden;vertical-align:bottom;opacity:0;transition:width .6s cubic-bezier(.16,1,.3,1),opacity .4s">→</span>Sécurité <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:-0.015em;">maîtrisée</span></h3></div>
+        <p style="margin:0;font-size:17px;line-height:1.6;color:#4a463f;max-width:52ch;text-wrap:pretty">Des CMS modernes, régulièrement mis à jour, avec une surface d'attaque réduite et une architecture pensée pour durer dans le temps.</p>
+      </div>
+      <div data-reveal="" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:12px 48px;align-items:baseline;padding:clamp(28px,3vw,44px) 0;border-top:1px solid rgba(24,23,20,.16);border-radius:4px;transition:background .6s cubic-bezier(.16,1,.3,1),padding .6s cubic-bezier(.16,1,.3,1)" data-row="">
+        <div style="display:flex;gap:clamp(20px,3vw,48px);align-items:baseline"><span style="font:500 13px/1 'Geist Mono',monospace;color:#5e5a52">03</span><h3 style="margin:0;font-weight:500;font-size:clamp(32px,4vw,68px);line-height:1;letter-spacing:-0.045em"><span data-row-arrow="" style="display:inline-block;width:0;overflow:hidden;vertical-align:bottom;opacity:0;transition:width .6s cubic-bezier(.16,1,.3,1),opacity .4s">→</span>Rapidité <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:-0.015em;">réelle</span></h3></div>
+        <p style="margin:0;font-size:17px;line-height:1.6;color:#4a463f;max-width:52ch;text-wrap:pretty">Deux maquettes dès le premier rendez-vous. Un site en ligne en quelques jours plutôt qu'en quelques mois — sans sacrifier la qualité.</p>
+      </div>
+      <div data-reveal="" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:12px 48px;align-items:baseline;padding:clamp(28px,3vw,44px) 0;border-top:1px solid rgba(24,23,20,.16);border-radius:4px;transition:background .6s cubic-bezier(.16,1,.3,1),padding .6s cubic-bezier(.16,1,.3,1)" data-row="">
+        <div style="display:flex;gap:clamp(20px,3vw,48px);align-items:baseline"><span style="font:500 13px/1 'Geist Mono',monospace;color:#5e5a52">04</span><h3 style="margin:0;font-weight:500;font-size:clamp(32px,4vw,68px);line-height:1;letter-spacing:-0.045em"><span data-row-arrow="" style="display:inline-block;width:0;overflow:hidden;vertical-align:bottom;opacity:0;transition:width .6s cubic-bezier(.16,1,.3,1),opacity .4s">→</span>Transparence <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:-0.015em;">totale</span></h3></div>
+        <p style="margin:0;font-size:17px;line-height:1.6;color:#4a463f;max-width:52ch;text-wrap:pretty">Tarifs affichés, paiement à la mise en ligne, aucun engagement caché. Vous savez exactement où vous allez, dès le premier échange.</p>
+      </div>
+      <div data-reveal="" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:12px 48px;align-items:baseline;padding:clamp(28px,3vw,44px) 0;border-top:1px solid rgba(24,23,20,.16);border-radius:4px;transition:background .6s cubic-bezier(.16,1,.3,1),padding .6s cubic-bezier(.16,1,.3,1)" data-row="">
+        <div style="display:flex;gap:clamp(20px,3vw,48px);align-items:baseline"><span style="font:500 13px/1 'Geist Mono',monospace;color:#5e5a52">05</span><h3 style="margin:0;font-weight:500;font-size:clamp(32px,4vw,68px);line-height:1;letter-spacing:-0.045em"><span data-row-arrow="" style="display:inline-block;width:0;overflow:hidden;vertical-align:bottom;opacity:0;transition:width .6s cubic-bezier(.16,1,.3,1),opacity .4s">→</span>Expérience <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:-0.015em;">solide</span></h3></div>
+        <p style="margin:0;font-size:17px;line-height:1.6;color:#4a463f;max-width:52ch;text-wrap:pretty">Vingt ans de développement web, en agence puis en indépendant. Une exigence technique qui se lit dans chaque projet livré.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<section id="portfolio" data-screen-label="07 Portfolio" style="padding:clamp(96px,12vw,180px) 0">
+  <div style="max-width:1640px;margin:0 auto;padding:0 clamp(20px,4vw,56px);display:flex;flex-direction:column;gap:clamp(56px,6vw,104px)">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:32px 64px">
+      <div style="flex:1 1 560px;display:flex;flex-direction:column;gap:32px">
+        <div style="display:flex;align-items:center;gap:12px;font:500 12px/1 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:#9b968c"><span style="width:8px;height:8px;border-radius:50%;background:var(--acc,#ec7a3c)"></span>07 — Portfolio</div>
+        <h2 data-split="" style="margin:0;font-weight:500;font-size:clamp(44px,6.51vw,120px);line-height:.9;letter-spacing:-0.055em">Les clients <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:-0.015em;">témoignent.</span></h2>
+      </div>
+      <p style="flex:0 1 400px;margin:0;font-size:18px;line-height:1.6;color:#c9c4bb">Découvrez les projets déjà réalisés accompagnés du témoignage client.</p>
+    </div>
+
+    <article data-reveal="" style="display:flex;flex-wrap:wrap;gap:clamp(32px,4vw,72px);align-items:flex-end">
+      <div data-clip="" data-tilt="" data-cursor="Voir" style="transition:transform .8s cubic-bezier(.16,1,.3,1);flex:1.5 1 520px;aspect-ratio:800/576;overflow:hidden;border-radius:8px;background:#22201c">
+        <img src="assets/cabinet-leon.jpg" alt="Cabinet Léon" style="width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.16,1,.3,1)" style-hover="transform:scale(1.05)">
+      </div>
+      <div style="flex:1 1 340px;display:flex;flex-direction:column;gap:24px">
+        <div style="display:flex;justify-content:space-between;font:500 12px/1 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:#9b968c"><span>Vitrine · 2024</span><span>01 / 04</span></div>
+        <h3 data-split="" style="margin:0;font-weight:500;font-size:clamp(40px,4.40vw,77px);line-height:.92;letter-spacing:-0.05em">Cabinet Léon</h3>
+        <p style="margin:0;font-size:17px;line-height:1.6;color:#c9c4bb">Une présence digitale institutionnelle, élégante et immédiatement crédible.</p>
+        <blockquote style="margin:0;border-top:1px solid rgba(236,232,225,.14);padding-top:24px;display:flex;flex-direction:column;gap:16px">
+          <span style="font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(24px,2.2vw,34px);line-height:1.15;text-wrap:pretty">« Deux maquettes prêtes dès le premier rendez-vous — nous avons gagné des semaines. »</span>
+          <footer style="font:500 12px/1 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:#9b968c">— Claire M. · Cabinet Léon</footer>
+        </blockquote>
+      </div>
+    </article>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:56px clamp(20px,2.4vw,40px);align-items:start">
+      <article data-speed="0.04" style="display:flex;flex-direction:column;gap:22px">
+        <div data-clip="" data-tilt="" data-cursor="Voir" style="transition:transform .8s cubic-bezier(.16,1,.3,1);aspect-ratio:4/5;overflow:hidden;border-radius:8px;background:#22201c"><img src="assets/table-des-marais.jpg" alt="Table des Marais" style="width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.16,1,.3,1)" style-hover="transform:scale(1.06)"></div>
+        <div style="display:flex;justify-content:space-between;font:500 12px/1 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:#9b968c"><span>Restaurant · 2024</span><span>02 / 04</span></div>
+        <h3 data-split="" style="margin:0;font-weight:500;font-size:clamp(32px,3vw,48px);line-height:1;letter-spacing:-0.045em">Table des Marais</h3>
+        <blockquote style="margin:0;display:flex;flex-direction:column;gap:14px"><span style="font-family:'Instrument Serif',serif;font-style:italic;font-size:24px;line-height:1.2;color:#ece8e1;text-wrap:pretty">« Un rendu net, une méthode efficace. On sent l'expérience à chaque étape. »</span><footer style="font:500 12px/1 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:#9b968c">— Julien D. · Chef</footer></blockquote>
+      </article>
+      <article data-speed="-0.1" style="display:flex;flex-direction:column;gap:22px;margin-top:clamp(0px,8vw,120px)">
+        <div data-clip="" data-tilt="" data-cursor="Voir" style="transition:transform .8s cubic-bezier(.16,1,.3,1);aspect-ratio:4/5;overflow:hidden;border-radius:8px;background:#22201c"><img src="assets/maison-farine.jpg" alt="Maison Farine" style="width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.16,1,.3,1)" style-hover="transform:scale(1.06)"></div>
+        <div style="display:flex;justify-content:space-between;font:500 12px/1 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:#9b968c"><span>Boutique · 2023</span><span>03 / 04</span></div>
+        <h3 data-split="" style="margin:0;font-weight:500;font-size:clamp(32px,3vw,48px);line-height:1;letter-spacing:-0.045em">Maison Farine</h3>
+        <blockquote style="margin:0;display:flex;flex-direction:column;gap:14px"><span style="font-family:'Instrument Serif',serif;font-style:italic;font-size:24px;line-height:1.2;color:#ece8e1;text-wrap:pretty">« Une boutique claire, rapide, qui convertit vraiment. Bien au-delà de nos attentes. »</span><footer style="font:500 12px/1 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:#9b968c">— Sophie R. · Fondatrice</footer></blockquote>
+      </article>
+      <article data-speed="0.07" style="display:flex;flex-direction:column;gap:22px;margin-top:clamp(0px,4vw,60px)">
+        <div data-clip="" data-tilt="" data-cursor="Voir" style="transition:transform .8s cubic-bezier(.16,1,.3,1);aspect-ratio:4/5;overflow:hidden;border-radius:8px;background:#22201c"><img src="assets/atelier-nord.jpg" alt="Atelier Nord" style="width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.16,1,.3,1)" style-hover="transform:scale(1.06)"></div>
+        <div style="display:flex;justify-content:space-between;font:500 12px/1 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:#9b968c"><span>Portfolio · 2023</span><span>04 / 04</span></div>
+        <h3 data-split="" style="margin:0;font-weight:500;font-size:clamp(32px,3vw,48px);line-height:1;letter-spacing:-0.045em">Atelier Nord</h3>
+        <blockquote style="margin:0;display:flex;flex-direction:column;gap:14px"><span style="font-family:'Instrument Serif',serif;font-style:italic;font-size:24px;line-height:1.2;color:#ece8e1;text-wrap:pretty">« Un site sobre, robuste, parfaitement calibré pour notre activité d'architecte. »</span><footer style="font:500 12px/1 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:#9b968c">— Marc T. · Architecte associé</footer></blockquote>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="stack" data-screen-label="08 Stack" style="padding:clamp(96px,12vw,180px) 0 0;border-top:1px solid rgba(236,232,225,.1)">
+  <div style="max-width:1640px;margin:0 auto;padding:0 clamp(20px,4vw,56px);display:flex;flex-direction:column;gap:clamp(48px,5vw,80px)">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:32px 64px">
+      <div style="flex:1 1 560px;display:flex;flex-direction:column;gap:32px">
+        <div style="display:flex;align-items:center;gap:12px;font:500 12px/1 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:#9b968c"><span style="width:8px;height:8px;border-radius:50%;background:var(--acc,#ec7a3c)"></span>08 — Le choix technique</div>
+        <h2 data-split="" style="margin:0;font-weight:500;font-size:clamp(44px,6.51vw,120px);line-height:.9;letter-spacing:-0.055em">Pourquoi je travaille <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:-0.015em;">autrement.</span></h2>
+      </div>
+      <div style="flex:0 1 460px;display:flex;flex-direction:column;gap:24px">
+        <p style="margin:0;font-size:17px;line-height:1.65;color:#c9c4bb;text-wrap:pretty">Après vingt ans de métier, j'ai choisi d'autres technologies que WordPress : plus proches de ma manière de concevoir un site de qualité, durable et facile à faire évoluer.</p>
+        <p style="margin:0;font-family:'Instrument Serif',serif;font-style:italic;font-size:26px;line-height:1.2;color:#ece8e1">« Car on ne conçoit pas les sites de demain avec les outils d'hier »</p>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:20px">
+      <div data-reveal="" data-tilt="" style="transition:transform .7s cubic-bezier(.16,1,.3,1),box-shadow .7s cubic-bezier(.16,1,.3,1);transform-style:preserve-3d;border-radius:10px;background:#211f1b;border:1px solid rgba(236,232,225,.08);padding:clamp(28px,3.4vw,52px);display:flex;flex-direction:column;gap:24px">
+        <div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font:500 12px/1 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase"><span style="color:var(--acc,#ec7a3c)">// CMS principal</span><span style="color:#9b968c">PHP · Laravel</span></div>
+        <h3 style="margin:0;font-weight:500;font-size:clamp(40px,4.40vw,74px);line-height:.95;letter-spacing:-0.05em">OctoberCMS</h3>
+        <p style="margin:0;font-size:17px;line-height:1.6;color:#c9c4bb;text-wrap:pretty">Un CMS moderne bâti sur Laravel, pensé pour les développeurs et les intégrateurs exigeants. Léger, sécurisé, extensible — et sans le poids d'un écosystème de plugins tiers hétérogènes.</p>
+        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;font:400 14px/1.4 'Geist Mono',monospace;color:#ece8e1">
+          <li style="padding:14px 0;border-top:1px solid rgba(236,232,225,.1);display:flex;gap:14px"><span style="color:var(--acc,#ec7a3c)">→</span>Back-office sur-mesure, adapté à votre usage réel</li>
+          <li style="padding:14px 0;border-top:1px solid rgba(236,232,225,.1);display:flex;gap:14px"><span style="color:var(--acc,#ec7a3c)">→</span>Code propre et maintenable</li>
+          <li style="padding:14px 0;border-top:1px solid rgba(236,232,225,.1);display:flex;gap:14px"><span style="color:var(--acc,#ec7a3c)">→</span>Extensible pour des fonctionnalités avancées</li>
+          <li style="padding:14px 0;border-top:1px solid rgba(236,232,225,.1);display:flex;gap:14px"><span style="color:var(--acc,#ec7a3c)">→</span>Mises à jour maîtrisées, cycle stable</li>
+        </ul>
+      </div>
+      <div data-reveal="" data-delay="100" data-tilt="" style="transition:transform .7s cubic-bezier(.16,1,.3,1),box-shadow .7s cubic-bezier(.16,1,.3,1);transform-style:preserve-3d;border-radius:10px;background:#211f1b;border:1px solid rgba(236,232,225,.08);padding:clamp(28px,3.4vw,52px);display:flex;flex-direction:column;gap:24px">
+        <div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font:500 12px/1 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase"><span style="color:var(--acc,#ec7a3c)">// Builder visuel</span><span style="color:#9b968c">HTML · CSS · JS</span></div>
+        <h3 style="margin:0;font-weight:500;font-size:clamp(40px,4.40vw,74px);line-height:.95;letter-spacing:-0.05em">Webstudio</h3>
+        <p style="margin:0;font-size:17px;line-height:1.6;color:#c9c4bb;text-wrap:pretty">Un outil visuel de nouvelle génération qui produit un code HTML/CSS propre, sémantique et performant. Idéal pour itérer vite sans sacrifier la qualité technique.</p>
+        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;font:400 14px/1.4 'Geist Mono',monospace;color:#ece8e1">
+          <li style="padding:14px 0;border-top:1px solid rgba(236,232,225,.1);display:flex;gap:14px"><span style="color:var(--acc,#ec7a3c)">→</span>Code standard, sans dette technique cachée</li>
+          <li style="padding:14px 0;border-top:1px solid rgba(236,232,225,.1);display:flex;gap:14px"><span style="color:var(--acc,#ec7a3c)">→</span>Performances natives, score Lighthouse élevé</li>
+          <li style="padding:14px 0;border-top:1px solid rgba(236,232,225,.1);display:flex;gap:14px"><span style="color:var(--acc,#ec7a3c)">→</span>Design system cohérent et réutilisable</li>
+          <li style="padding:14px 0;border-top:1px solid rgba(236,232,225,.1);display:flex;gap:14px"><span style="color:var(--acc,#ec7a3c)">→</span>Accessibilité et SEO pris en compte dès la conception</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:40px clamp(20px,2.4vw,40px)">
+      <div data-reveal="" style="display:flex;flex-direction:column;gap:12px;border-top:1px solid rgba(236,232,225,.14);padding-top:24px"><span style="font:500 12px/1 'Geist Mono',monospace;color:var(--acc,#ec7a3c)">01</span><h3 style="margin:0;font-weight:500;font-size:22px;letter-spacing:-0.03em">Architecture moderne</h3><p style="margin:0;font-size:15px;line-height:1.55;color:#9b968c">Des bases techniques récentes, pensées pour la performance et la maintenabilité sur le long terme.</p></div>
+      <div data-reveal="" data-delay="80" style="display:flex;flex-direction:column;gap:12px;border-top:1px solid rgba(236,232,225,.14);padding-top:24px"><span style="font:500 12px/1 'Geist Mono',monospace;color:var(--acc,#ec7a3c)">02</span><h3 style="margin:0;font-weight:500;font-size:22px;letter-spacing:-0.03em">Sécurité maîtrisée</h3><p style="margin:0;font-size:15px;line-height:1.55;color:#9b968c">Une surface d'attaque réduite, sans dépendre d'un écosystème étendu de plugins tiers.</p></div>
+      <div data-reveal="" data-delay="160" style="display:flex;flex-direction:column;gap:12px;border-top:1px solid rgba(236,232,225,.14);padding-top:24px"><span style="font:500 12px/1 'Geist Mono',monospace;color:var(--acc,#ec7a3c)">03</span><h3 style="margin:0;font-weight:500;font-size:22px;letter-spacing:-0.03em">Administration claire</h3><p style="margin:0;font-size:15px;line-height:1.55;color:#9b968c">Un back-office pensé pour votre usage réel — pas un empilement de menus techniques inutiles.</p></div>
+      <div data-reveal="" data-delay="240" style="display:flex;flex-direction:column;gap:12px;border-top:1px solid rgba(236,232,225,.14);padding-top:24px"><span style="font:500 12px/1 'Geist Mono',monospace;color:var(--acc,#ec7a3c)">04</span><h3 style="margin:0;font-weight:500;font-size:22px;letter-spacing:-0.03em">Évolutivité</h3><p style="margin:0;font-size:15px;line-height:1.55;color:#9b968c">Une base saine pour faire grandir votre site sereinement, année après année.</p></div>
+    </div>
+  </div>
+
+  <div style="margin-top:clamp(80px,10vw,160px);border-top:1px solid rgba(236,232,225,.1);border-bottom:1px solid rgba(236,232,225,.1);padding:clamp(28px,3vw,44px) 0;display:flex;flex-direction:column;gap:24px;overflow:hidden">
+    <div style="max-width:1640px;width:100%;margin:0 auto;padding:0 clamp(20px,4vw,56px);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px 24px;font:500 12px/1 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:#9b968c">
+      <span>Je fais aussi</span>
+    </div>
+    <div ref="{{ marqueeRef }}" style="display:flex;width:max-content;will-change:transform">
+      <div style="display:flex;align-items:center;gap:clamp(28px,3vw,56px);padding-right:clamp(28px,3vw,56px);font-weight:500;font-size:clamp(37px,5.28vw,92px);line-height:1.1;letter-spacing:-0.05em;white-space:nowrap">
+        <span>Développement sur-mesure</span><span style="width:.28em;height:.28em;border-radius:50%;background:var(--acc,#ec7a3c);flex:none"></span>
+        <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:-0.01em">Marque blanche</span><span style="width:.28em;height:.28em;border-radius:50%;background:var(--acc,#ec7a3c);flex:none"></span>
+        <span>E-commerce</span><span style="width:.28em;height:.28em;border-radius:50%;background:var(--acc,#ec7a3c);flex:none"></span>
+        <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:-0.01em">Consultant IA</span><span style="width:.28em;height:.28em;border-radius:50%;background:var(--acc,#ec7a3c);flex:none"></span>
+        <span>SEO / SEA</span><span style="width:.28em;height:.28em;border-radius:50%;background:var(--acc,#ec7a3c);flex:none"></span>
+        <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:-0.01em">Formations</span><span style="width:.28em;height:.28em;border-radius:50%;background:var(--acc,#ec7a3c);flex:none"></span>
+      </div>
+      <div aria-hidden="true" style="display:flex;align-items:center;gap:clamp(28px,3vw,56px);padding-right:clamp(28px,3vw,56px);font-weight:500;font-size:clamp(37px,5.28vw,92px);line-height:1.1;letter-spacing:-0.05em;white-space:nowrap">
+        <span>Développement sur-mesure</span><span style="width:.28em;height:.28em;border-radius:50%;background:var(--acc,#ec7a3c);flex:none"></span>
+        <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:-0.01em">Marque blanche</span><span style="width:.28em;height:.28em;border-radius:50%;background:var(--acc,#ec7a3c);flex:none"></span>
+        <span>E-commerce</span><span style="width:.28em;height:.28em;border-radius:50%;background:var(--acc,#ec7a3c);flex:none"></span>
+        <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:-0.01em">Consultant IA</span><span style="width:.28em;height:.28em;border-radius:50%;background:var(--acc,#ec7a3c);flex:none"></span>
+        <span>SEO / SEA</span><span style="width:.28em;height:.28em;border-radius:50%;background:var(--acc,#ec7a3c);flex:none"></span>
+        <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:-0.01em">Formations</span><span style="width:.28em;height:.28em;border-radius:50%;background:var(--acc,#ec7a3c);flex:none"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cta" data-screen-label="09 Rendez-vous" style="position:relative;padding:clamp(120px,14vw,220px) 0;overflow:hidden">
+  <div style="position:absolute;left:50%;bottom:-40vw;width:90vw;height:70vw;transform:translateX(-50%);border-radius:50%;background:radial-gradient(closest-side,color-mix(in oklch,var(--acc,#ec7a3c) 22%,transparent),transparent);pointer-events:none"></div>
+  <div style="position:relative;max-width:1640px;margin:0 auto;padding:0 clamp(20px,4vw,56px);display:flex;flex-direction:column;align-items:center;gap:clamp(40px,4vw,64px);text-align:center">
+    <div style="display:flex;align-items:center;gap:12px;font:500 12px/1 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:#9b968c"><span style="width:8px;height:8px;border-radius:50%;background:var(--acc,#ec7a3c)"></span>09 — Prenons rendez-vous</div>
+    <h2 data-split="" style="margin:0;font-weight:500;font-size:clamp(52px,9.68vw,183px);line-height:.88;letter-spacing:-0.06em">Découvrez vos<br><span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:-0.015em;">deux maquettes.</span></h2>
+    <p style="margin:0;font-size:clamp(17px,1.4vw,21px);line-height:1.55;color:#c9c4bb;max-width:46ch;text-wrap:pretty">Quelques informations, un créneau, et deux propositions fonctionnelles vous attendent le jour de notre visio.</p>
+    <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:24px 40px">
+      <a data-magnetic="0.35" href="#cta" style="width:clamp(160px,15vw,220px);aspect-ratio:1;border-radius:50%;background:var(--acc,#ec7a3c);color:#181714;display:grid;place-items:center;text-align:center;font-weight:500;font-size:clamp(16px,1.3vw,19px);line-height:1.25;padding:24px;transition:transform .5s cubic-bezier(.16,1,.3,1)">Réserver<br>ma visio →</a>
+      <a href="#concept" style="font-size:16px;color:#ece8e1;border-bottom:1px solid rgba(236,232,225,.3);padding-bottom:4px">Relire le concept</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer style="border-top:1px solid rgba(236,232,225,.1);padding:40px 0 0;overflow:hidden">
+  <div style="max-width:1640px;margin:0 auto;padding:0 clamp(20px,4vw,56px);display:flex;flex-direction:column;gap:clamp(40px,5vw,72px)">
+    <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px 32px;font:500 12px/1.4 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:#9b968c">
+      <span>© 2026 — Développeur web indépendant · 20 ans d'expérience</span>
+      <span style="display:flex;gap:28px"><a href="#">Mentions</a><a href="#cta">Contact</a><a href="#top">Haut de page ↑</a></span>
+    </div>
+    <div data-split="" data-split-mode="rise" aria-hidden="true" style="display:flex;align-items:baseline;font-weight:600;font-size:clamp(40px,12.4vw,216px);line-height:.9;letter-spacing:-0.07em;white-space:nowrap;margin-bottom:-0.04em;color:#ece8e1"><span>azerty</span><span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:-0.02em;margin-left:.04em;padding-right:.04em">studio<span style="color:var(--acc,#ec7a3c)">.fr</span></span></div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#ec7a3c&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#ec7a3c&quot;,&quot;#c8f04b&quot;,&quot;#8b8cf8&quot;,&quot;#e9e4da&quot;],&quot;section&quot;:&quot;Direction&quot;},&quot;motion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Interactions&quot;},&quot;cursor&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Interactions&quot;}}">
+class Component extends DCLogic {
+  state = { billing: 'monthly', pressed: {}, typed: '', pos: 50, time: '', narrow: false };
+  keys = ['A', 'Z', 'E', 'R', 'T', 'Y'];
+  compareRef = React.createRef();
+  marqueeRef = React.createRef();
+  fillRef = React.createRef();
+  processRef = React.createRef();
+  ease = 'cubic-bezier(.16,1,.3,1)';
+  cleanups = [];
+
+  get motion() {
+    const reduced = typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    return (this.props.motion ?? true) && !reduced;
+  }
+
+  on(target, type, fn, opts) { target.addEventListener(type, fn, opts); this.cleanups.push(() => target.removeEventListener(type, fn, opts)); }
+
+  componentDidMount() {
+    this.applyAccent();
+    const tick = () => {
+      const t = new Intl.DateTimeFormat('fr-FR', { timeZone: 'Europe/Paris', hour: '2-digit', minute: '2-digit' }).format(new Date());
+      if (t !== this.state.time) this.setState({ time: t });
+    };
+    const onResize = () => { const n = window.innerWidth < 860; if (n !== this.state.narrow) this.setState({ narrow: n }); };
+    onResize();
+    this.on(window, 'resize', onResize);
+    this.on(window, 'keydown', e => {
+      if (e.repeat || e.metaKey || e.ctrlKey || e.altKey) return;
+      if (e.target && e.target.closest && e.target.closest('input,textarea,[contenteditable="true"]')) return;
+      const k = (e.key || '').toUpperCase();
+      if (this.keys.includes(k)) this.press(k, true);
+    });
+    this.on(window, 'keyup', e => { const k = (e.key || '').toUpperCase(); if (this.keys.includes(k)) this.press(k, false); });
+
+    this.els = {
+      scale: [...document.querySelectorAll('[data-scale]')],
+      drift: [...document.querySelectorAll('[data-drift]')],
+      dots: [...document.querySelectorAll('[data-dot]')],
+      final: document.querySelector('[data-final]'),
+      rings: [...document.querySelectorAll('[data-ring]')],
+      parallax: [...document.querySelectorAll('[data-parallax]')],
+      speed: [...document.querySelectorAll('[data-speed]')],
+      rows: [...document.querySelectorAll('[data-row]')]
+    };
+    this.els.rows.forEach((r, j) => {
+      this.on(r, 'mouseenter', () => { this.hoverRow = true; this.setActiveRow(j); });
+      this.on(r, 'mouseleave', () => { this.hoverRow = false; this.scrollFx(); });
+    });
+    this.lastY = window.scrollY;
+    this.header = document.querySelector('[data-header]');
+    this.navbar = document.querySelector('[data-navbar]');
+    this.on(window, 'scroll', () => { if (!this.raf) this.raf = requestAnimationFrame(() => { this.raf = 0; this.scrollFx(); }); }, { passive: true });
+    this.scrollFx();
+
+    this.heroIntro();
+    this.setupMarks();
+    this.setupReveal();
+    this.setupCounters();
+    this.setupCompareHint();
+    this.setupCursor();
+    this.setupPointerFx();
+    if (this.motion && this.marqueeRef.current) {
+      this.marquee = this.marqueeRef.current.animate([{ transform: 'translateX(0)' }, { transform: 'translateX(-50%)' }], { duration: 42000, iterations: Infinity });
+      this.mRate = 1; this.mTarget = 1;
+      const loop = () => {
+        this.mTarget += (1 - this.mTarget) * 0.04;
+        this.mRate += (this.mTarget - this.mRate) * 0.12;
+        if (this.marquee) this.marquee.playbackRate = this.mRate;
+        this.mLoop = requestAnimationFrame(loop);
+      };
+      loop();
+    }
+  }
+
+  componentDidUpdate(prev) {
+    if (prev.accent !== this.props.accent) this.applyAccent();
+    if (prev.cursor !== this.props.cursor) { this.teardownCursor(); this.setupCursor(); }
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.clock);
+    clearTimeout(this.bounceTimer);
+    cancelAnimationFrame(this.mLoop);
+    this.cleanups.forEach(f => f());
+    (this.restorers || []).forEach(f => f());
+    [this.io, this.cio, this.hio].forEach(o => o && o.disconnect());
+    this.marquee && this.marquee.cancel();
+    (this.markAnims || []).forEach(a => a.cancel());
+    this.teardownCursor();
+  }
+
+  applyAccent() { document.documentElement.style.setProperty('--acc', this.props.accent ?? '#ec7a3c'); }
+
+  press(k, down) {
+    this.setState(s => {
+      if (!!s.pressed[k] === down) return null;
+      return { pressed: { ...s.pressed, [k]: down }, typed: down ? (s.typed + k).slice(-6) : s.typed };
+    });
+  }
+
+  // Split text nodes into per-char spans; restore() puts the original nodes back after the animation.
+  splitText(el) {
+    const chars = [], pairs = [];
+    const walk = node => {
+      [...node.childNodes].forEach(n => {
+        if (n.nodeType === 3) {
+          if (!n.textContent.trim()) return;
+          const holder = document.createElement('span');
+          holder.style.display = 'contents';
+          n.textContent.split(/(\s+)/).forEach(part => {
+            if (!part) return;
+            if (/^\s+$/.test(part)) { holder.appendChild(document.createTextNode(part)); return; }
+            const w = document.createElement('span');
+            w.style.cssText = 'display:inline-block;white-space:nowrap';
+            for (const ch of part) {
+              const c = document.createElement('span');
+              c.textContent = ch;
+              c.style.display = 'inline-block';
+              w.appendChild(c); chars.push(c);
+            }
+            holder.appendChild(w);
+          });
+          n.replaceWith(holder);
+          pairs.push([n, holder]);
+        } else if (n.nodeType === 1 && !/^(IMG|BR)$/.test(n.tagName) && !n.hasAttribute('data-pill')) walk(n);
+      });
+    };
+    walk(el);
+    return { chars, restore: () => pairs.forEach(([n, h]) => { if (h.isConnected) h.replaceWith(n); }) };
+  }
+
+  animateChars(el, mode) {
+    const { chars, restore } = this.splitText(el);
+    if (!chars.length) return;
+    const stagger = Math.min(mode === 'rise' ? 50 : 22, 900 / chars.length);
+    const kf = mode === 'rise'
+      ? [{ transform: 'translateY(100%)' }, { transform: 'none' }]
+      : mode === 'mask'
+        ? [{ transform: 'translateY(110%) rotate(8deg)' }, { transform: 'none' }]
+        : [{ opacity: 0, transform: 'translateY(.4em) rotate(3deg)', filter: 'blur(3px)' }, { opacity: 1, transform: 'none', filter: 'blur(0)' }];
+    let last;
+    chars.forEach((c, i) => { last = c.animate(kf, { duration: mode === 'rise' ? 1300 : 1000, delay: (+(el.dataset.delay || 0)) + i * stagger, easing: this.ease, fill: 'backwards' }); });
+    (this.restorers || (this.restorers = [])).push(restore);
+  }
+
+  bounce() {
+    const d = document.querySelector('[data-bounce]');
+    if (!d || this.bouncing || !this.motion) return;
+    this.bouncing = true;
+    const up = 'cubic-bezier(.2,.75,.35,1)', fall = 'cubic-bezier(.65,0,.9,.45)';
+    const a = d.animate([
+      { transform: 'translateY(0) scale(1,1)', easing: 'ease-out' },
+      { transform: 'translateY(0) scale(1.4,.6)', offset: .12, easing: up },
+      { transform: 'translateY(-.6em) scale(.82,1.22)', offset: .36, easing: 'ease-out' },
+      { transform: 'translateY(-.68em) scale(1,1)', offset: .44, easing: fall },
+      { transform: 'translateY(0) scale(1.35,.65)', offset: .6, easing: up },
+      { transform: 'translateY(-.16em) scale(.92,1.1)', offset: .74, easing: fall },
+      { transform: 'translateY(0) scale(1.12,.88)', offset: .86, easing: 'ease-out' },
+      { transform: 'translateY(0) scale(1,1)' }
+    ], { duration: 1400 });
+    const done = () => { this.bouncing = false; };
+    a.finished.then(done).catch(done);
+  }
+
+  setFinal(on) {
+    const fin = this.els.final, rings = this.els.rings;
+    fin.style.background = on ? 'var(--acc,#ec7a3c)' : '#181714';
+    fin.style.color = on ? '#181714' : '#ece8e1';
+    fin.style.borderColor = on ? 'var(--acc,#ec7a3c)' : '';
+    fin.style.transform = on ? 'scale(1.22)' : '';
+    fin.style.boxShadow = on ? '0 0 48px color-mix(in oklch, var(--acc,#ec7a3c) 55%, transparent)' : '';
+    (this.ringAnims || []).forEach(a => a.cancel());
+    this.ringAnims = [];
+    if (!on || !this.motion) return;
+    fin.animate([{ transform: 'scale(1)' }, { transform: 'scale(1.45)' }, { transform: 'scale(1.22)' }], { duration: 900, easing: 'cubic-bezier(.34,1.56,.64,1)' });
+    rings.forEach((ring, i) => {
+      this.ringAnims.push(ring.animate([
+        { transform: 'scale(1)', opacity: .55 },
+        { transform: 'scale(2.6)', opacity: 0 }
+      ], { duration: 2400, delay: 300 + i * 1200, iterations: Infinity, easing: 'cubic-bezier(.16,1,.3,1)' }));
+    });
+  }
+
+  setActiveRow(i) {
+    if (i === this.activeRow) return;
+    this.activeRow = i;
+    (this.els ? this.els.rows : []).forEach((r, j) => {
+      const on = j === i;
+      r.style.background = on ? 'var(--acc,#ec7a3c)' : '';
+      r.style.paddingLeft = r.style.paddingRight = on ? 'clamp(16px,2vw,32px)' : '';
+      const ar = r.querySelector('[data-row-arrow]');
+      if (ar) { ar.style.width = on ? '1.1em' : '0'; ar.style.opacity = on ? '1' : '0'; }
+    });
+  }
+
+  heroIntro() {
+    const arrow = document.querySelector('[data-arrow-loop]');
+    if (arrow && this.motion) arrow.animate([
+      { transform: 'translateY(0)', opacity: 1 },
+      { transform: 'translateY(150%)', opacity: 0, offset: .4 },
+      { transform: 'translateY(-150%)', opacity: 0, offset: .41 },
+      { transform: 'translateY(0)', opacity: 1, offset: .8 },
+      { transform: 'translateY(0)', opacity: 1 }
+    ], { duration: 2200, iterations: Infinity, easing: 'cubic-bezier(.65,0,.35,1)', delay: 1600 });
+    if (this.motion) {
+      const loop = delay => {
+        this.bounceTimer = setTimeout(() => {
+          if (window.scrollY < window.innerHeight && !document.hidden) this.bounce();
+          loop(4000 + Math.random() * 3000);
+        }, delay);
+      };
+      loop(2300);
+    }
+    if (!this.motion) return;
+    document.querySelectorAll('[data-hero]').forEach((el, i) => { el.dataset.delay = 200 + i * 380; this.animateChars(el, 'mask'); });
+    document.querySelectorAll('[data-pill]').forEach(el => el.animate([{ transform: 'translateY(.06em) scale(0)', opacity: 0 }, { transform: 'translateY(.06em) scale(1)', opacity: 1 }], { duration: 1200, delay: 650, easing: 'cubic-bezier(.34,1.4,.64,1)', fill: 'backwards' }));
+    document.querySelectorAll('[data-hero-fade]').forEach((el, i) => el.animate([{ opacity: 0, transform: 'translateY(20px)' }, { opacity: 1, transform: 'none' }], { duration: 1200, delay: 900 + i * 140, easing: this.ease, fill: 'backwards' }));
+  }
+
+  setupReveal() {
+    if (!this.motion || typeof IntersectionObserver === 'undefined') return;
+    const vh = window.innerHeight;
+    this.io = new IntersectionObserver(entries => {
+      entries.forEach(en => {
+        if (!en.isIntersecting) return;
+        const el = en.target;
+        this.io.unobserve(el);
+        const d = +(el.dataset.delay || 0);
+        if (el.hasAttribute('data-split')) {
+          el.style.opacity = '';
+          this.animateChars(el, el.dataset.splitMode);
+        } else if (el.hasAttribute('data-clip')) {
+          el.style.clipPath = '';
+          el.animate([{ clipPath: 'inset(22% 12% 22% 12% round 18px)' }, { clipPath: 'inset(0% 0% 0% 0% round 8px)' }], { duration: 1600, delay: d, easing: this.ease, fill: 'backwards' });
+          const img = el.querySelector('img');
+          if (img && !img.hasAttribute('data-parallax')) img.animate([{ transform: 'scale(1.35)' }, { transform: 'scale(1)' }], { duration: 1800, delay: d, easing: this.ease, fill: 'backwards' });
+        } else if (el.hasAttribute('data-seq')) {
+          const items = [...el.querySelectorAll('[data-seq-i]')], gap = 420;
+          items.forEach((it, i) => {
+            it.style.opacity = '';
+            const op = it.hasAttribute('data-op');
+            it.animate(op
+              ? [{ opacity: 0, transform: 'scale(0) rotate(-140deg)' }, { opacity: 1, transform: 'none' }]
+              : [{ opacity: 0, transform: 'translateX(-56px)', filter: 'blur(4px)' }, { opacity: 1, transform: 'none', filter: 'blur(0)' }],
+              { duration: op ? 900 : 1100, delay: i * gap, easing: op ? 'cubic-bezier(.34,1.56,.64,1)' : this.ease, fill: 'backwards' });
+          });
+          const last = items[items.length - 1];
+          if (last) last.animate([{ transform: 'none' }, { transform: 'scale(1.05)' }, { transform: 'none' }], { duration: 800, delay: items.length * gap + 500, easing: this.ease });
+        } else if (el.hasAttribute('data-pop')) {
+          el.style.opacity = '';
+          el.animate([
+            { opacity: 0, transform: 'translateY(30px) scale(.6)', clipPath: 'inset(0 50% 0 50% round 999px)' },
+            { opacity: 1, transform: 'translateY(0) scale(1)', clipPath: 'inset(0 0% 0 0% round 999px)' }
+          ], { duration: 1100, delay: 700, easing: 'cubic-bezier(.34,1.45,.64,1)', fill: 'backwards' });
+          const ar = el.querySelector('[data-pop-arrow]');
+          if (ar) {
+            ar.animate([{ transform: 'translateX(-24px)', opacity: 0 }, { transform: 'none', opacity: 1 }], { duration: 800, delay: 1300, easing: this.ease, fill: 'backwards' });
+            this.popLoop = ar.animate([{ transform: 'none' }, { transform: 'translateX(6px)', offset: .15 }, { transform: 'none', offset: .3 }, { transform: 'none' }], { duration: 2600, delay: 2400, iterations: Infinity, easing: 'ease-in-out' });
+          }
+        } else if (el.hasAttribute('data-keys')) {
+          [...el.children].forEach((k, i) => {
+            k.style.opacity = '';
+            k.animate([{ opacity: 0, transform: 'translateY(-90px) rotate(' + (i % 2 ? 8 : -8) + 'deg)' }, { opacity: 1, transform: 'translateY(0)' }], { duration: 1100, delay: i * 80, easing: 'cubic-bezier(.34,1.56,.64,1)', fill: 'backwards' });
+          });
+        } else {
+          el.style.opacity = '';
+          el.animate([{ opacity: 0, transform: 'translateY(56px)' }, { opacity: 1, transform: 'none' }], { duration: 1200, delay: d, easing: this.ease, fill: 'backwards' });
+        }
+      });
+    }, { rootMargin: '0px 0px -10% 0px' });
+    document.querySelectorAll('[data-reveal],[data-split],[data-clip],[data-keys],[data-seq],[data-pop]').forEach(el => {
+      if (el.getBoundingClientRect().top > vh) {
+        if (el.hasAttribute('data-clip')) el.style.clipPath = 'inset(22% 12% 22% 12% round 18px)';
+        else if (el.hasAttribute('data-keys')) [...el.children].forEach(k => { k.style.opacity = '0'; });
+        else if (el.hasAttribute('data-seq')) el.querySelectorAll('[data-seq-i]').forEach(k => { k.style.opacity = '0'; });
+        else el.style.opacity = '0';
+      }
+      this.io.observe(el);
+    });
+  }
+
+  setupMarks() {
+    if (!this.motion) return;
+    this.markAnims = [...document.querySelectorAll('[data-mark]')].map(el =>
+      el.animate([{ backgroundPosition: '0% 0' }, { backgroundPosition: '-200% 0' }], { duration: 5000, iterations: Infinity, easing: 'linear' }));
+  }
+
+  setupCounters() {
+    if (!this.motion || typeof IntersectionObserver === 'undefined') return;
+    this.cio = new IntersectionObserver(entries => {
+      entries.forEach(en => {
+        if (!en.isIntersecting) return;
+        const el = en.target;
+        this.cio.unobserve(el);
+        const target = parseFloat(el.dataset.count), dec = +(el.dataset.dec || 0), t0 = performance.now(), dur = 1800;
+        const step = now => {
+          const p = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - p, 4);
+          el.textContent = (target * e).toFixed(dec).replace('.', ',');
+          if (p < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      });
+    }, { threshold: 0.6 });
+    document.querySelectorAll('[data-count]').forEach(el => this.cio.observe(el));
+  }
+
+  setupCompareHint() {
+    const el = this.compareRef.current;
+    if (!this.motion || !el || typeof IntersectionObserver === 'undefined') return;
+    this.hio = new IntersectionObserver(([en]) => {
+      if (!en.isIntersecting) return;
+      this.hio.disconnect();
+      const frames = [50, 22, 78, 50], seg = 900, t0 = performance.now() + 500;
+      const step = now => {
+        if (this.touched) return;
+        const t = Math.max(0, now - t0) / seg, i = Math.floor(t);
+        if (i >= frames.length - 1) { this.setState({ pos: 50 }); return; }
+        const f = t - i, e = f < .5 ? 4 * f * f * f : 1 - Math.pow(-2 * f + 2, 3) / 2;
+        this.setState({ pos: frames[i] + (frames[i + 1] - frames[i]) * e });
+        requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    }, { threshold: 0.6 });
+    this.hio.observe(el);
+  }
+
+  setPosFrom(e) {
+    const el = this.compareRef.current;
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    this.touched = true;
+    this.setState({ pos: Math.min(100, Math.max(0, (e.clientX - r.left) / r.width * 100)) });
+  }
+
+  scrollFx() {
+    const vh = window.innerHeight, sy = window.scrollY;
+    const v = sy - this.lastY; this.lastY = sy;
+    if (this.navbar) {
+      const solid = sy > 40;
+      if (solid !== this.navSolid) {
+        this.navSolid = solid;
+        const nb = this.navbar.style;
+        nb.background = solid ? 'rgba(24,23,20,.72)' : 'rgba(24,23,20,0)';
+        nb.borderColor = solid ? 'rgba(236,232,225,.1)' : 'transparent';
+        nb.backdropFilter = nb.webkitBackdropFilter = solid ? 'blur(18px) saturate(1.4)' : 'blur(0px)';
+        nb.boxShadow = solid ? '0 12px 40px -12px rgba(0,0,0,.45)' : 'none';
+      }
+      if (Math.abs(v) > 4) {
+        const hide = v > 0 && sy > vh * 0.8;
+        if (hide !== this.navHidden) { this.navHidden = hide; this.header.style.transform = hide ? 'translateY(-120%)' : ''; }
+      }
+    }
+    if (this.marquee) this.mTarget = Math.max(-7, Math.min(9, 1 + v * 0.18));
+    const proc = this.processRef.current, fill = this.fillRef.current;
+    if (proc && fill) {
+      const r = proc.getBoundingClientRect();
+      fill.style.transform = 'scaleY(' + Math.min(1, Math.max(0, (vh * 0.6 - r.top) / r.height)) + ')';
+    }
+    (this.els ? this.els.dots : []).forEach(d => {
+      const r = d.getBoundingClientRect(), on = r.top + r.height / 2 < vh * 0.6;
+      d.style.background = on ? 'var(--acc,#ec7a3c)' : '#181714';
+      d.style.color = on ? '#181714' : '';
+      d.style.borderColor = on ? 'var(--acc,#ec7a3c)' : '';
+    });
+    const fin = this.els && this.els.final;
+    if (fin) {
+      const r = fin.getBoundingClientRect(), on = r.top + r.height / 2 < vh * 0.6;
+      if (on !== this.finalOn) { this.finalOn = on; this.setFinal(on); }
+    }
+    if (this.els && this.els.rows.length && !this.hoverRow) {
+      let best = -1, bd = Infinity;
+      this.els.rows.forEach((r, j) => {
+        const b = r.getBoundingClientRect(), c = b.top + b.height / 2, dist = Math.abs(c - vh * 0.5);
+        if (b.top < vh * 0.7 && b.bottom > vh * 0.3 && dist < bd) { bd = dist; best = j; }
+      });
+      this.setActiveRow(best);
+    }
+    if (!this.motion || !this.els) return;
+    this.els.speed.forEach(el => {
+      const r = el.getBoundingClientRect();
+      if (r.top > vh * 1.2 || r.bottom < -vh * 0.2) return;
+      const cur = parseFloat(el.dataset.ty || 0);
+      const y = (r.top - cur + r.height / 2 - vh / 2) * -parseFloat(el.dataset.speed);
+      el.dataset.ty = y;
+      el.style.transform = 'translate3d(0,' + y.toFixed(1) + 'px,0)';
+    });
+    if (sy < vh * 1.3) this.els.drift.forEach(el => { el.style.transform = 'translate3d(' + (sy * parseFloat(el.dataset.drift)).toFixed(1) + 'px,0,0)'; });
+    this.els.scale.forEach(el => {
+      const r = el.getBoundingClientRect();
+      if (r.top > vh || r.bottom < 0) return;
+      const p = Math.min(1, Math.max(0, (vh - r.top) / (vh * 0.8))), e = 1 - Math.pow(1 - p, 3);
+      el.style.transform = 'scale(' + (0.82 + 0.18 * e).toFixed(4) + ')';
+    });
+    this.els.parallax.forEach(img => {
+      const r = img.parentElement.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > vh) return;
+      const y = (r.top + r.height / 2 - vh / 2) * -parseFloat(img.dataset.parallax);
+      img.style.transform = 'translate3d(0,' + y.toFixed(1) + 'px,0) scale(1.15)';
+    });
+  }
+
+  setupPointerFx() {
+    if (typeof matchMedia === 'undefined' || !matchMedia('(pointer:fine)').matches) return;
+    document.querySelectorAll('[data-tilt]').forEach(el => {
+      this.on(el, 'mousemove', e => {
+        const r = el.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+        const k = el.closest('#tarifs') ? 13 : 5;
+        el.style.transform = 'perspective(1000px) rotateX(' + (-y * k).toFixed(2) + 'deg) rotateY(' + (x * k).toFixed(2) + 'deg) translateY(-8px)' + (k > 5 ? ' scale(1.015)' : '');
+        if (k > 5) el.style.boxShadow = (-x * 30).toFixed(0) + 'px ' + (30 - y * 20).toFixed(0) + 'px 60px -20px rgba(24,23,20,.35)';
+      });
+      this.on(el, 'mouseleave', () => { el.style.transform = ''; el.style.boxShadow = ''; });
+    });
+    document.querySelectorAll('[data-magnetic]').forEach(el => {
+      const f = parseFloat(el.dataset.magnetic) || 0.25;
+      this.on(el, 'mousemove', e => {
+        const r = el.getBoundingClientRect();
+        el.style.transform = 'translate(' + ((e.clientX - r.left - r.width / 2) * f).toFixed(1) + 'px,' + ((e.clientY - r.top - r.height / 2) * f).toFixed(1) + 'px)';
+      });
+      this.on(el, 'mouseleave', () => { el.style.transform = ''; });
+    });
+    const pill = document.querySelector('[data-pill]'), pimg = pill && pill.querySelector('img');
+    if (pill && this.motion) this.on(window, 'mousemove', e => {
+      if (window.scrollY > window.innerHeight) return;
+      const r = pill.getBoundingClientRect();
+      const dx = Math.max(-1, Math.min(1, (e.clientX - (r.left + r.width / 2)) / (window.innerWidth * 0.4)));
+      const dy = Math.max(-1, Math.min(1, (e.clientY - (r.top + r.height / 2)) / (window.innerHeight * 0.4)));
+      pill.style.transform = 'translateY(.06em) perspective(500px) rotateY(' + (dx * 30).toFixed(1) + 'deg) rotateX(' + (-dy * 30).toFixed(1) + 'deg)';
+      if (pimg) pimg.style.transform = 'scale(1.25) translate(' + (-dx * 7).toFixed(1) + '%,' + (-dy * 7).toFixed(1) + '%)';
+    });
+    const h1 = document.querySelector('[data-h1]');
+    if (h1) { this.on(h1, 'mouseenter', () => this.bounce()); this.on(h1, 'click', () => this.bounce()); }
+    const logo = document.querySelector('[data-logo]');
+    if (logo && this.motion) {
+      const letters = [...logo.querySelectorAll('[data-logo-l]')], studio = logo.querySelector('[data-logo-s]'), dot = logo.querySelector('[data-logo-d]');
+      let busy = false;
+      this.on(logo, 'mouseenter', () => {
+        if (busy) return; busy = true;
+        letters.forEach((l, i) => l.animate([
+          { transform: 'none', color: '#ece8e1' },
+          { transform: 'translateY(3px) scale(1.15,.75)', color: 'var(--acc,#ec7a3c)', offset: .25 },
+          { transform: 'translateY(-5px) scale(.92,1.1)', color: 'var(--acc,#ec7a3c)', offset: .55, easing: 'cubic-bezier(.33,0,.2,1)' },
+          { transform: 'translateY(0) scale(1)', color: '#ece8e1' }
+        ], { duration: 560, delay: i * 55, easing: 'ease-out' }));
+        studio.animate([{ transform: 'translateX(0) skewX(0)' }, { transform: 'translateX(4px) skewX(-8deg)', offset: .5 }, { transform: 'translateX(0) skewX(0)' }], { duration: 700, delay: 300, easing: 'cubic-bezier(.16,1,.3,1)' });
+        const a = dot.animate([{ transform: 'none' }, { transform: 'translateY(-7px) rotate(-12deg)', offset: .4 }, { transform: 'translateY(0) scale(1.2,.8)', offset: .7, easing: 'cubic-bezier(.33,0,.2,1)' }, { transform: 'translateY(0) rotate(0) scale(1)' }], { duration: 720, delay: 480, easing: 'ease-out' });
+        a.finished.then(() => { busy = false; }).catch(() => { busy = false; });
+      });
+    }
+    const glow = document.querySelector('[data-glow]');
+    if (glow && this.motion && !this.glowFloat) this.glowFloat = glow.animate([
+      { translate: '0 0', scale: '1' },
+      { translate: '-9vw 6vw', scale: '1.14' },
+      { translate: '-3vw 13vw', scale: '0.94' },
+      { translate: '6vw 4vw', scale: '1.08' },
+      { translate: '0 0', scale: '1' }
+    ], { duration: 22000, iterations: Infinity, easing: 'ease-in-out' });
+    if (glow && this.motion) this.on(window, 'mousemove', e => {
+      if (window.scrollY > window.innerHeight) return;
+      glow.style.transform = 'translate3d(' + ((e.clientX / window.innerWidth - .5) * -160).toFixed(0) + 'px,' + ((e.clientY / window.innerHeight - .5) * 120).toFixed(0) + 'px,0)';
+    });
+  }
+
+  setupCursor() {
+    if (!(this.props.cursor ?? true) || typeof matchMedia === 'undefined' || !matchMedia('(pointer:fine)').matches) return;
+    const c = document.createElement('div');
+    Object.assign(c.style, {
+      position: 'fixed', left: '0', top: '0', width: '14px', height: '14px', marginLeft: '-7px', marginTop: '-7px',
+      borderRadius: '50%', background: '#ece8e1', mixBlendMode: 'difference', pointerEvents: 'none', zIndex: '9999',
+      display: 'grid', placeItems: 'center', color: '#181714', font: '500 12px/1 "Geist Mono", monospace',
+      letterSpacing: '.06em', textTransform: 'uppercase', opacity: '0',
+      transition: 'width .45s cubic-bezier(.16,1,.3,1), height .45s cubic-bezier(.16,1,.3,1), margin .45s cubic-bezier(.16,1,.3,1), background .3s, opacity .3s'
+    });
+    document.body.appendChild(c);
+    this.cursor = c;
+    let x = -100, y = -100, cx = -100, cy = -100, mode = '';
+    const setMode = (m, label) => {
+      if (m === mode) return;
+      mode = m;
+      const s = m === 'label' ? 96 : m === 'link' ? 56 : 14;
+      c.style.width = c.style.height = s + 'px';
+      c.style.marginLeft = c.style.marginTop = -s / 2 + 'px';
+      c.style.mixBlendMode = m === 'label' ? 'normal' : 'difference';
+      c.style.background = m === 'label' ? 'var(--acc,#ec7a3c)' : '#ece8e1';
+      c.textContent = m === 'label' ? label : '';
+    };
+    this.onMouse = e => {
+      x = e.clientX; y = e.clientY; c.style.opacity = '1';
+      const t = e.target && e.target.closest ? e.target : null;
+      const lab = t && t.closest('[data-cursor]');
+      if (lab) setMode('label', lab.getAttribute('data-cursor'));
+      else if (t && t.closest('header')) setMode('');
+      else if (t && t.closest('a,button,[role=tablist]')) setMode('link');
+      else setMode('');
+    };
+    this.onMouseOut = e => { if (!e.relatedTarget) c.style.opacity = '0'; };
+    const loop = () => {
+      cx += (x - cx) * 0.2; cy += (y - cy) * 0.2;
+      c.style.transform = 'translate3d(' + cx + 'px,' + cy + 'px,0)';
+      this.cursorRaf = requestAnimationFrame(loop);
+    };
+    loop();
+    window.addEventListener('mousemove', this.onMouse);
+    document.addEventListener('mouseout', this.onMouseOut);
+  }
+
+  teardownCursor() {
+    if (!this.cursor) return;
+    cancelAnimationFrame(this.cursorRaf);
+    window.removeEventListener('mousemove', this.onMouse);
+    document.removeEventListener('mouseout', this.onMouseOut);
+    this.cursor.remove();
+    this.cursor = null;
+  }
+
+  setBilling(b) {
+    if (b === this.state.billing) return;
+    this.setState({ billing: b }, () => {
+      if (!this.motion) return;
+      document.querySelectorAll('[data-price]').forEach(el => el.animate([{ opacity: 0, transform: 'translateY(28px)', filter: 'blur(6px)' }, { opacity: 1, transform: 'none', filter: 'blur(0)' }], { duration: 800, easing: this.ease }));
+    });
+  }
+
+  renderVals() {
+    const { billing, pressed, pos, narrow, typed, time } = this.state;
+    const m = billing === 'monthly';
+    const up = 'inset 0 1px 0 rgba(255,255,255,.08), 0 6px 0 #0b0a09, 0 16px 28px rgba(0,0,0,.5)';
+    const down = 'inset 0 1px 0 rgba(255,255,255,.05), 0 2px 0 #0b0a09, 0 6px 14px rgba(0,0,0,.45)';
+    const averti = typed === 'AZERTY';
+    return {
+      time: time || '—',
+      wide: !narrow,
+      keys: this.keys.map(k => ({
+        letter: k,
+        tf: pressed[k] ? 'translateY(5px)' : 'translateY(0)',
+        shadow: pressed[k] ? down : up,
+        color: pressed[k] || averti ? 'var(--acc,#ec7a3c)' : '#ece8e1',
+        glow: pressed[k] ? '0 0 28px var(--acc,#ec7a3c)' : 'none',
+        down: () => this.press(k, true),
+        up: () => this.press(k, false)
+      })),
+      averti,
+      notAverti: !averti,
+      compareRef: this.compareRef,
+      clipA: 'inset(0 ' + (100 - pos).toFixed(2) + '% 0 0)',
+      handleLeft: pos.toFixed(2) + '%',
+      onCmpDown: e => { this.dragging = true; e.currentTarget.style.cursor = 'grabbing'; e.currentTarget.setPointerCapture && e.currentTarget.setPointerCapture(e.pointerId); this.setPosFrom(e); },
+      onCmpMove: e => { if (this.dragging) this.setPosFrom(e); },
+      onCmpUp: e => { this.dragging = false; if (e && e.currentTarget) e.currentTarget.style.cursor = 'grab'; },
+      processRef: this.processRef,
+      fillRef: this.fillRef,
+      marqueeRef: this.marqueeRef,
+      mBg: m ? '#181714' : 'transparent', mFg: m ? '#ece8e1' : '#181714',
+      oBg: m ? 'transparent' : '#181714', oFg: m ? '#181714' : '#ece8e1',
+      setMonthly: () => this.setBilling('monthly'),
+      setOnce: () => this.setBilling('once'),
+      oneP: m ? '19,90€' : '790€', oneU: m ? 'par mois' : 'une seule fois', oneN: m ? 'Sur 12 mois' : 'Hébergement offert',
+      multiP: m ? '39,90€' : '1 990€', multiU: m ? 'par mois' : 'une seule fois', multiN: m ? 'Sur 12 mois' : 'Hébergement offert'
+    };
+  }
+}
+</script>
+</body>
+</html>
