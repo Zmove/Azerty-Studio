@@ -59,55 +59,359 @@
   };
   let billing = 'monthly';
   const billingBtns = $$('[data-billing]');
+  const billingThumb = $('[data-billing-thumb]'), billingTrack = $('[data-billing-track]');
   function setBilling(b) {
     if (b === billing) return;
     billing = b;
     billingBtns.forEach(btn => {
       const on = btn.dataset.billing === b;
-      btn.style.background = on ? '#181714' : 'transparent';
-      btn.style.color = on ? '#ece8e1' : '#181714';
+      btn.style.color = on ? '#181714' : '#ece8e1';
       btn.setAttribute('aria-pressed', on);
     });
+    if (billingThumb) billingThumb.style.transform = b === 'monthly' ? 'translateX(0)' : 'translateX(100%)';
     $$('[data-bind]').forEach(el => { el.textContent = PRICES[b][el.dataset.bind]; });
     if (motion) $$('[data-price]').forEach(el => el.animate([{ opacity: 0, transform: 'translateY(28px)', filter: 'blur(6px)' }, { opacity: 1, transform: 'none', filter: 'blur(0)' }], { duration: 800, easing: ease }));
   }
   billingBtns.forEach(btn => btn.addEventListener('click', () => setBilling(btn.dataset.billing)));
+  // Petit coup de pouce visuel sur le sélecteur quand il apparaît
+  if (billingTrack && billingThumb && motion && 'IntersectionObserver' in window) {
+    const bio = new IntersectionObserver(([en]) => {
+      if (!en.isIntersecting) return;
+      bio.disconnect();
+      if (billing !== 'monthly') return;
+      billingThumb.animate([{ transform: 'translateX(0)' }, { transform: 'translateX(22%)', offset: .35 }, { transform: 'translateX(-4%)', offset: .7 }, { transform: 'translateX(0)' }], { duration: 1100, delay: 700, easing: 'cubic-bezier(.65,0,.35,1)' });
+      billingTrack.animate([{ boxShadow: '0 0 0 0 color-mix(in oklch,var(--acc,#ec7a3c) 50%,transparent)' }, { boxShadow: '0 0 0 14px transparent' }], { duration: 1200, delay: 700, easing: 'ease-out' });
+    }, { threshold: 1 });
+    bio.observe(billingTrack);
+  }
 
-  // ---------- Comparateur A / B ----------
-  const cmp = $('[data-compare]'), cmpA = $('[data-compare-a]'), cmpHandle = $('[data-compare-handle]');
-  let touched = false, dragging = false;
-  function setPos(pos) {
-    cmpA.style.clipPath = 'inset(0 ' + (100 - pos).toFixed(2) + '% 0 0)';
-    cmpHandle.style.left = pos.toFixed(2) + '%';
+  // ---------- Le concept, en quatre temps (défilement épinglé) ----------
+  const qa = (root, s) => [...root.querySelectorAll(s)];
+  const S = {
+    root: $('[data-story]'), row: $('[data-story-row]'), rail: $('[data-story-row] > ol'), stageCol: $('[data-stage-col]'), stage: $('[data-stage]'), bar: $('[data-story-bar]'), n: $('[data-story-n]'), steps: $$('[data-step]'),
+    form: $('[data-l-form]'), type: $('[data-type]'), chips: $$('[data-chip]'), slots: $$('[data-slot]'), book: $('[data-book]'), bookT: $('[data-book-t]'),
+    prep: $('[data-l-prep]'), winA: $('[data-win="a"]'), winB: $('[data-win="b"]'), prepT: $('[data-prep-t]'), prepS: $('[data-prep-status]'),
+    cmp: $('[data-l-cmp]'), cmpA: $('[data-cmp-a]'), cmpH: $('[data-cmp-h]'), hint: $('[data-cmp-hint]'), choice: $('[data-l-choice]'),
+    resNone: $('[data-result="none"]'), resPicked: $('[data-result="picked"]'), pickedL: $('[data-picked-l]'), choiceBtns: $$('[data-choice]')
+  };
+  let cmpPos = 50, cmpTween = 0, touched = false, dragging = false, choice = null;
+  let storyStep = -1, storyNarrow = false, typedN = -1, booked, prepPct = -1;
+
+  function setCmp(v) {
+    cmpPos = v;
+    S.cmpA.style.clipPath = 'inset(0 ' + (100 - v).toFixed(2) + '% 0 0)';
+    S.cmpH.style.left = v.toFixed(2) + '%';
   }
-  function setPosFrom(e) {
-    const r = cmp.getBoundingClientRect();
-    touched = true;
-    setPos(Math.min(100, Math.max(0, (e.clientX - r.left) / r.width * 100)));
+  function tweenCmp(to) {
+    cancelAnimationFrame(cmpTween);
+    const from = cmpPos, t0 = performance.now(), dur = motion ? 900 : 1;
+    const step = now => {
+      const t = Math.min(1, (now - t0) / dur), e = t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+      setCmp(from + (to - from) * e);
+      if (t < 1) cmpTween = requestAnimationFrame(step);
+    };
+    cmpTween = requestAnimationFrame(step);
   }
-  if (cmp) {
-    cmp.addEventListener('pointerdown', e => { dragging = true; cmp.style.cursor = 'grabbing'; cmp.setPointerCapture && cmp.setPointerCapture(e.pointerId); setPosFrom(e); });
-    cmp.addEventListener('pointermove', e => { if (dragging) setPosFrom(e); });
-    const stop = () => { dragging = false; cmp.style.cursor = 'grab'; };
-    cmp.addEventListener('pointerup', stop);
-    cmp.addEventListener('pointercancel', stop);
-    if (motion && 'IntersectionObserver' in window) {
-      const hio = new IntersectionObserver(([en]) => {
-        if (!en.isIntersecting) return;
-        hio.disconnect();
-        const frames = [50, 22, 78, 50], seg = 900, t0 = performance.now() + 500;
-        const step = now => {
-          if (touched) return;
-          const t = Math.max(0, now - t0) / seg, i = Math.floor(t);
-          if (i >= frames.length - 1) { setPos(50); return; }
-          const f = t - i, e = f < .5 ? 4 * f * f * f : 1 - Math.pow(-2 * f + 2, 3) / 2;
-          setPos(frames[i] + (frames[i + 1] - frames[i]) * e);
-          requestAnimationFrame(step);
-        };
-        requestAnimationFrame(step);
-      }, { threshold: 0.6 });
-      hio.observe(cmp);
+  function renderChoice() {
+    const styles = {
+      A: ['var(--acc,#ec7a3c)', '#181714', 'var(--acc,#ec7a3c)'],
+      B: ['var(--acc,#ec7a3c)', '#181714', 'var(--acc,#ec7a3c)'],
+      none: ['#ece8e1', '#181714', '#ece8e1']
+    };
+    S.choiceBtns.forEach(btn => {
+      const c = btn.dataset.choice, on = choice === c;
+      btn.style.background = on ? styles[c][0] : 'transparent';
+      btn.style.color = on ? styles[c][1] : '#ece8e1';
+      btn.style.borderColor = on ? styles[c][2] : 'rgba(236,232,225,.2)';
+      btn.setAttribute('aria-pressed', on);
+    });
+    S.resNone.hidden = choice !== 'none';
+    S.resPicked.hidden = choice !== 'A' && choice !== 'B';
+    if (choice === 'A' || choice === 'B') S.pickedL.textContent = choice;
+  }
+  function choose(c) {
+    choice = choice === c ? null : c;
+    touched = !!choice;
+    renderChoice();
+    tweenCmp(choice === 'A' ? 100 : choice === 'B' ? 0 : 50);
+    if (choice && motion) {
+      if (choice === 'none') S.resNone.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 700, easing: 'cubic-bezier(.34,1.4,.64,1)' });
+      else S.resPicked.animate([{ opacity: 0, transform: 'translate(-50%,-12px) scale(.9)' }, { opacity: 1, transform: 'translate(-50%,0) scale(1)' }], { duration: 700, easing: 'cubic-bezier(.34,1.4,.64,1)' });
     }
+  }
+  S.choiceBtns.forEach(btn => btn.addEventListener('click', () => choose(btn.dataset.choice)));
+
+  function setPosFrom(e) {
+    const r = S.cmp.getBoundingClientRect();
+    touched = true;
+    setCmp(Math.min(100, Math.max(0, (e.clientX - r.left) / r.width * 100)));
+  }
+  if (S.cmp) {
+    S.cmp.addEventListener('pointerdown', e => { dragging = true; S.cmp.style.cursor = 'grabbing'; S.cmp.setPointerCapture && S.cmp.setPointerCapture(e.pointerId); setPosFrom(e); });
+    S.cmp.addEventListener('pointermove', e => { if (dragging) setPosFrom(e); });
+    const stop = () => { dragging = false; S.cmp.style.cursor = 'grab'; };
+    S.cmp.addEventListener('pointerup', stop);
+    S.cmp.addEventListener('pointercancel', stop);
+  }
+
+  function fitStage() {
+    if (!S.stageCol) return;
+    const h = S.stageCol.clientHeight, w = S.stageCol.clientWidth;
+    S.stage.style.maxWidth = Math.max(0, Math.min(w, h * 1.6)) + 'px';
+  }
+  function layoutStory() {
+    if (!S.row) return;
+    storyNarrow = window.innerWidth < 860;
+    S.row.style.flexDirection = storyNarrow ? 'column' : 'row';
+    S.row.style.alignItems = storyNarrow ? 'stretch' : 'center';
+    S.rail.style.flex = storyNarrow ? '0 0 auto' : '0 0 clamp(240px,30%,440px)';
+    storyStep = -1;
+    storyFx(window.innerHeight);
+    fitStage();
+  }
+
+  // Toute la séquence est pilotée par la position de défilement dans [data-story]
+  function storyFx(vh) {
+    if (!S.root) return;
+    const cl = v => Math.min(1, Math.max(0, v));
+    const r = S.root.getBoundingClientRect();
+    const p = cl(-r.top / (r.height - vh));
+    const seg = (a, b) => cl((p - a) / (b - a));
+    const eo = t => 1 - Math.pow(1 - t, 3), io = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    const step = p >= .76 ? 3 : p >= .53 ? 2 : p >= .25 ? 1 : 0;
+    S.bar.style.transform = 'scaleX(' + p.toFixed(4) + ')';
+    if (step !== storyStep) {
+      storyStep = step;
+      S.n.textContent = '0' + (step + 1);
+      S.steps.forEach((li, i) => {
+        const on = i === step;
+        li.style.opacity = on ? '1' : '.32';
+        li.style.display = storyNarrow && !on ? 'none' : '';
+        li.querySelector('[data-step-body]').style.gridTemplateRows = on ? '1fr' : '0fr';
+        li.querySelector('[data-step-n]').style.color = on ? 'var(--acc,#ec7a3c)' : '#9b968c';
+      });
+    }
+    // 01 — formulaire (factice : rien n'est envoyé)
+    const fOut = io(seg(.2, .28));
+    S.form.style.opacity = (1 - fOut).toFixed(3);
+    S.form.style.transform = 'translateY(' + (-fOut * 4).toFixed(2) + '%) scale(' + (1 - fOut * .12).toFixed(4) + ')';
+    S.form.style.filter = fOut > 0 ? 'blur(' + (fOut * 10).toFixed(1) + 'px)' : '';
+    const txt = S.type.dataset.text, nC = Math.round(txt.length * seg(.015, .09));
+    if (nC !== typedN) { typedN = nC; S.type.textContent = txt.slice(0, nC); }
+    let k = 0;
+    S.chips.forEach(c => {
+      const on = c.hasAttribute('data-pick') && p > .1 + (k++) * .016;
+      c.style.background = on ? 'var(--acc,#ec7a3c)' : '';
+      c.style.color = on ? '#181714' : '';
+      c.style.borderColor = on ? 'var(--acc,#ec7a3c)' : '';
+    });
+    S.slots.forEach((sl, i) => {
+      const on = i === 3 && p > .155;
+      sl.style.background = on ? '#ece8e1' : '';
+      sl.style.color = on ? '#181714' : '';
+      sl.style.borderColor = on ? '#ece8e1' : '';
+    });
+    const isBooked = p > .18;
+    if (isBooked !== booked) {
+      booked = isBooked;
+      S.book.style.background = booked ? 'var(--acc,#ec7a3c)' : '#ece8e1';
+      S.book.style.transform = booked ? 'scale(1.03)' : '';
+      S.bookT.textContent = booked ? '✓ Visio réservée — jeudi 15:30' : 'Réserver ma visio →';
+    }
+    // 02 — préparation des maquettes
+    const pin = eo(seg(.23, .31)), split = eo(seg(.25, .36)), merge = io(seg(.47, .55));
+    S.prep.style.opacity = (pin * (1 - seg(.555, .575))).toFixed(3);
+    const sp = split * (1 - merge);
+    const sc = (.3 + .16 * split) * (1 - merge) + merge;
+    const y = (1 - pin) * 6 - 3 * sp;
+    S.winA.style.transform = 'translate(' + (-26 * sp).toFixed(2) + '%,' + y.toFixed(2) + '%) rotate(' + (-3 * sp).toFixed(2) + 'deg) scale(' + sc.toFixed(4) + ')';
+    S.winB.style.transform = 'translate(' + (26 * sp).toFixed(2) + '%,' + (y + 4 * sp).toFixed(2) + '%) rotate(' + (3 * sp).toFixed(2) + 'deg) scale(' + sc.toFixed(4) + ')';
+    const bA = seg(.33, .44), bB = seg(.355, .465);
+    [[S.winA, bA], [S.winB, bB]].forEach(([w, b]) => {
+      w.querySelector('[data-render]').style.clipPath = 'inset(0 0 ' + ((1 - b) * 100).toFixed(2) + '% 0)';
+      const scan = w.querySelector('[data-scan]');
+      scan.style.top = (b * 100).toFixed(2) + '%';
+      scan.style.opacity = b > 0 && b < 1 ? '1' : '0';
+    });
+    const pct = Math.round((bA + bB) * 50);
+    if (pct !== prepPct) { prepPct = pct; S.prepT.textContent = pct >= 100 ? 'Deux maquettes prêtes ✓' : 'Préparation des maquettes · ' + pct + '%'; }
+    S.prepS.style.opacity = (1 - merge).toFixed(3);
+    // 03 — comparaison
+    const cIn = seg(.53, .56);
+    S.cmp.style.opacity = cIn.toFixed(3);
+    S.cmp.style.pointerEvents = cIn > .9 ? 'auto' : 'none';
+    S.hint.style.opacity = (seg(.56, .6) * (1 - seg(.72, .76))).toFixed(3);
+    if (!touched && !choice) {
+      const t = seg(.57, .74), fr = [50, 14, 86, 50], f = t * 3, i = Math.min(2, Math.floor(f));
+      setCmp(fr[i] + (fr[i + 1] - fr[i]) * io(f - i));
+    }
+    if (p < .5 && (touched || choice)) { touched = false; if (choice) { choice = null; renderChoice(); } setCmp(50); }
+    // 04 — choix
+    const ch = eo(seg(.76, .8));
+    S.choice.style.opacity = ch.toFixed(3);
+    S.choice.style.transform = 'translate(-50%,' + ((1 - ch) * 24).toFixed(1) + 'px)';
+    S.choice.style.pointerEvents = ch > .6 ? 'auto' : 'none';
+  }
+
+  if (S.root) {
+    layoutStory();
+    if ('ResizeObserver' in window && S.stageCol) new ResizeObserver(fitStage).observe(S.stageCol);
+    const caret = $('[data-caret]');
+    if (caret && motion) caret.animate([{ opacity: 1 }, { opacity: 1, offset: .5 }, { opacity: 0, offset: .51 }, { opacity: 0 }], { duration: 1000, iterations: Infinity });
+  }
+
+  // ---------- Simulation IA : « IA + Alex » contre « IA seule » ----------
+  const D = {
+    root: $('[data-duo]'), canvas: $('[data-canvas]'), log: $('[data-log]'), tag: $('[data-duo-tag]'),
+    ai: $('[data-cur="ai"]'), hu: $('[data-cur="hu"]'), title: $('[data-title]'), img: $('[data-duo-img]'),
+    blk: { title: $('[data-blk="title"]'), btn: $('[data-blk="btn"]'), img: $('[data-blk="img"]'), cards: $('[data-blk="cards"]') },
+    cards: $$('[data-card]'), live: $('[data-live]'), modeBtns: $$('[data-duo-mode]'),
+    speed: $('[data-gauge="speed"]'), fit: $('[data-gauge="fit"]')
+  };
+  let duo = 'pair', duoTok = 0, duoVisible = false, duoT0 = 0;
+
+  function duoReset(final) {
+    D.log.innerHTML = '';
+    D.tag.style.opacity = '0';
+    D.title.textContent = 'Cuisine de saison, sans détour.';
+    D.title.style.fontFamily = ''; D.title.style.fontStyle = '';
+    Object.values(D.blk).forEach(b => { b.style.transform = ''; b.style.outline = ''; b.style.color = ''; });
+    D.blk.btn.style.background = '#d4532b';
+    D.img.style.filter = '';
+    D.cards.forEach(c => { c.style.transform = ''; c.style.borderRadius = ''; });
+    qa(D.canvas, '[data-sk]').forEach(k => { k.style.opacity = final ? '0' : '1'; });
+    D.ai.style.opacity = '1';
+    D.hu.style.opacity = duo === 'solo' ? '0' : '1';
+    duoT0 = performance.now();
+  }
+  function moveCur(who, blk, fx, fy) {
+    const c = D.canvas.getBoundingClientRect(), r = D.blk[blk].getBoundingClientRect();
+    const el = who === 'ai' ? D.ai : D.hu;
+    el.style.left = ((r.left - c.left + r.width * fx) / c.width * 100).toFixed(2) + '%';
+    el.style.top = ((r.top - c.top + r.height * fy) / c.height * 100).toFixed(2) + '%';
+  }
+  function clickCur(who) {
+    const el = who === 'ai' ? D.ai : D.hu;
+    el.firstChild.animate([{ transform: 'scale(1)' }, { transform: 'scale(.78)' }, { transform: 'scale(1)' }], { duration: 260, easing: 'ease-out' });
+  }
+  function duoLog(who, text) {
+    const ai = who === 'ai';
+    const sec = Math.floor((performance.now() - duoT0) / 1000);
+    const li = document.createElement('li');
+    li.style.cssText = 'display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:baseline;font:400 14px/1.45 Geist,sans-serif;color:#c9c4bb';
+    li.innerHTML = '<span style="padding:4px 8px;border-radius:99px;font:500 10px/1 \'Geist Mono\',monospace;letter-spacing:.08em;text-transform:uppercase;' + (ai ? 'background:var(--acc,#ec7a3c);color:#181714' : 'background:#ece8e1;color:#181714') + '">' + (ai ? 'IA' : 'Alex') + '</span><span style="text-wrap:pretty' + (ai ? '' : ';color:#ece8e1') + '"></span><span style="font:500 11px/1 \'Geist Mono\',monospace;color:#9b968c">00:' + String(sec).padStart(2, '0') + '</span>';
+    li.children[1].textContent = text;
+    D.log.prepend(li);
+    li.animate([{ opacity: 0, transform: 'translateY(-14px)' }, { opacity: 1, transform: 'none' }], { duration: 500, easing: ease });
+    while (D.log.children.length > 7) D.log.lastChild.remove();
+  }
+  async function duoCycle(sleep) {
+    const solo = duo === 'solo';
+    duoReset();
+    const sk = b => qa(D.blk[b], '[data-sk]').forEach(k => { k.style.opacity = '0'; });
+    const ring = (b, color, dashed) => { D.blk[b].style.outline = color ? '2px ' + (dashed ? 'dashed ' : 'solid ') + color : ''; D.blk[b].style.outlineOffset = '6px'; };
+    const rnd = (a, b) => a + Math.random() * (b - a);
+    const titles = ['Bienvenue chez Aurèle !', 'Le goût du Doubs.', 'Une table, une saison.', 'Restaurant moderne & convivial', 'Cuisine de saison, sans détour.'];
+    const filters = ['hue-rotate(70deg) saturate(1.6)', 'grayscale(1)', 'sepia(.9)', 'contrast(1.5) saturate(.5)', 'hue-rotate(200deg)', 'saturate(2.2)'];
+    const colors = ['#3b6cf6', '#2bb673', '#8a5cf6', '#e0b100', '#d4532b'];
+    const steps = [
+      { b: 'title', ai: '5 accroches générées en 2 secondes', hu: 'Retient la plus sobre, ajuste le rythme',
+        gen: i => { D.title.textContent = titles[i % titles.length]; D.title.style.fontFamily = i % 2 ? "'Instrument Serif',serif" : ''; },
+        ok: () => { D.title.textContent = 'Cuisine de saison, sans détour.'; D.title.style.fontFamily = ''; },
+        bad: () => { D.title.textContent = 'Bienvenue chez Aurèle !'; D.title.style.fontFamily = "'Instrument Serif',serif"; D.blk.title.style.transform = 'rotate(-1.2deg) translateX(3%)'; D.blk.title.style.color = '#3b6cf6'; } },
+      { b: 'img', ai: '6 traitements d’image proposés', hu: 'Garde la lumière naturelle du lieu',
+        gen: i => { D.img.style.filter = filters[i % filters.length]; },
+        ok: () => { D.img.style.filter = ''; },
+        bad: () => { D.img.style.filter = filters[0]; D.blk.img.style.transform = 'translate(3%,2%) rotate(1.4deg)'; } },
+      { b: 'btn', ai: 'Propose 5 palettes d’accent', hu: 'Choisit la terre cuite, vérifie le contraste',
+        gen: i => { D.blk.btn.style.background = colors[i % colors.length]; },
+        ok: () => { D.blk.btn.style.background = '#d4532b'; },
+        bad: () => { D.blk.btn.style.background = '#2bb673'; D.blk.btn.style.transform = 'translateX(28%) rotate(-2deg)'; } },
+      { b: 'cards', ai: 'Génère la grille et le code des cartes', hu: 'Aligne la grille, relit le code',
+        gen: () => D.cards.forEach(c => { c.style.transform = 'translate(' + rnd(-8, 8).toFixed(1) + '%,' + rnd(-16, 16).toFixed(1) + '%) rotate(' + rnd(-3, 3).toFixed(1) + 'deg)'; c.style.borderRadius = rnd(0, 2.4).toFixed(1) + 'cqw'; }),
+        ok: () => D.cards.forEach(c => { c.style.transform = ''; c.style.borderRadius = ''; }),
+        bad: () => {} }
+    ];
+    await sleep(700);
+    for (const st of steps) {
+      moveCur('ai', st.b, .3, .45);
+      await sleep(950);
+      clickCur('ai'); ring(st.b, 'var(--acc,#ec7a3c)', true); sk(st.b); duoLog('ai', st.ai);
+      for (let i = 0; i < 9; i++) { st.gen(i); await sleep(solo ? 90 : 120); }
+      if (solo) { st.bad(); ring(st.b, ''); await sleep(450); continue; }
+      moveCur('hu', st.b, .72, .6);
+      await sleep(1000);
+      clickCur('hu'); ring(st.b, '#181714'); st.ok(); duoLog('hu', st.hu);
+      await sleep(900);
+      ring(st.b, '');
+    }
+    moveCur('ai', 'img', .5, .82);
+    if (!solo) moveCur('hu', 'title', .9, .1);
+    await sleep(600);
+    if (solo) duoLog('ai', 'Termine en 9 s. Aucune décision prise.');
+    else duoLog('hu', 'Valide la maquette, prête à présenter');
+    D.tag.textContent = solo ? '⚠ Incohérent · à reprendre' : '✓ Prête à présenter';
+    D.tag.style.background = solo ? '#181714' : 'var(--acc,#ec7a3c)';
+    D.tag.style.color = solo ? '#ece8e1' : '#181714';
+    D.tag.style.opacity = '1';
+    await sleep(3600);
+  }
+  async function runDuo() {
+    const tok = ++duoTok;
+    const sleep = ms => new Promise(r => setTimeout(r, ms)).then(() => { if (tok !== duoTok) throw 'stop'; });
+    try { for (;;) await duoCycle(sleep); } catch (e) { if (e !== 'stop') console.error(e); }
+  }
+  function setDuo(m) {
+    if (duo === m) return;
+    duo = m;
+    D.modeBtns.forEach(btn => {
+      const on = btn.dataset.duoMode === m;
+      btn.style.background = on ? (m === 'solo' ? 'var(--acc,#ec7a3c)' : '#ece8e1') : 'transparent';
+      btn.style.color = on ? '#181714' : '#ece8e1';
+      btn.setAttribute('aria-pressed', on);
+    });
+    D.speed.style.width = m === 'solo' ? '100%' : '86%';
+    D.fit.style.width = m === 'solo' ? '22%' : '96%';
+    if (duoVisible) runDuo(); else duoReset(true);
+  }
+  if (D.root) {
+    D.modeBtns.forEach(btn => btn.addEventListener('click', () => setDuo(btn.dataset.duoMode)));
+    if (motion && D.live) D.live.animate([{ opacity: 1 }, { opacity: .25 }, { opacity: 1 }], { duration: 1400, iterations: Infinity });
+    if (!motion || !('IntersectionObserver' in window)) duoReset(true);
+    else {
+      new IntersectionObserver(([en]) => {
+        if (en.isIntersecting && !duoVisible) { duoVisible = true; runDuo(); }
+        else if (!en.isIntersecting && duoVisible) { duoVisible = false; duoTok++; }
+      }, { threshold: .35 }).observe(D.canvas);
+    }
+  }
+
+  // ---------- Appel à l'action final ----------
+  function setupCta() {
+    const btn = $('[data-cta-btn]');
+    if (btn) {
+      const fill = btn.querySelector('[data-cta-fill]'), t = btn.querySelector('[data-cta-t]'), sub = btn.querySelector('[data-cta-s]'), ar = btn.querySelector('[data-cta-arrow]');
+      btn.addEventListener('mouseenter', () => { fill.style.width = 'calc(100% - 18px)'; t.style.color = '#181714'; sub.style.color = '#181714'; ar.style.transform = 'rotate(0deg)'; btn.style.borderColor = 'var(--acc,#ec7a3c)'; });
+      btn.addEventListener('mouseleave', () => { fill.style.width = 'clamp(52px,4.4vw,64px)'; t.style.color = ''; sub.style.color = ''; ar.style.transform = ''; btn.style.borderColor = ''; });
+    }
+    const sec = $('#cta'), field = $('[data-cta-field]');
+    if (!sec || !field || !motion) return;
+    $$('[data-cta-glow]').forEach((g, i) => {
+      const k = [[-6, -4, 1.12], [9, 7, .9], [-8, 10, 1.18]][i] || [5, 5, 1.05];
+      g.animate([
+        { translate: '0 0', scale: '1' },
+        { translate: k[0] + 'vw ' + k[1] + 'vw', scale: String(k[2]) },
+        { translate: (-k[1]) + 'vw ' + (k[0] * .6) + 'vw', scale: String(2 - k[2]) },
+        { translate: '0 0', scale: '1' }
+      ], { duration: 16000 + i * 5000, iterations: Infinity, easing: 'ease-in-out' });
+    });
+    if (!finePointer) return;
+    sec.addEventListener('mousemove', e => {
+      const r = sec.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+      field.style.transform = 'translate3d(' + (x * 14).toFixed(2) + 'vw,' + (y * 10).toFixed(2) + 'vw,0)';
+    });
+    sec.addEventListener('mouseleave', () => { field.style.transform = ''; });
   }
 
   // ---------- Découpage de texte en caractères ----------
@@ -334,6 +638,7 @@
 
   function scrollFx() {
     const vh = window.innerHeight, sy = window.scrollY;
+    storyFx(vh);
     const v = sy - lastY; lastY = sy;
     if (navbar) {
       const solid = sy > 40;
@@ -403,6 +708,7 @@
   });
   let raf = 0;
   window.addEventListener('scroll', () => { if (!raf) raf = requestAnimationFrame(() => { raf = 0; scrollFx(); }); }, { passive: true });
+  window.addEventListener('resize', () => { layoutStory(); scrollFx(); });
 
   // ---------- Effets pointeur (souris uniquement) ----------
   function setupPointerFx() {
@@ -530,5 +836,6 @@
   setupCounters();
   setupCursor();
   setupPointerFx();
+  setupCta();
   setupMarquee();
 })();
